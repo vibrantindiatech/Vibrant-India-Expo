@@ -6,6 +6,7 @@
     <title>Vibrant India 2026 - Ice Cream, Chocolate & Cold Drink Exhibition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         /* Base Styles & Variables */
         :root {
@@ -895,6 +896,273 @@
             transform: translateY(0);
         }
 
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-item {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .author-info p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Sponsors Section */
+        .sponsors {
+            background-color: var(--white);
+        }
+
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .sponsor-item {
+            background: var(--light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            transition: var(--transition);
+        }
+
+        .sponsor-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .sponsor-item img {
+            max-width: 100%;
+            max-height: 60px;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .sponsor-item:hover img {
+            filter: grayscale(0);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(233, 30, 99, 0.05);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question {
+            background: rgba(233, 30, 99, 0.05);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 20px;
+            max-height: 500px;
+        }
+
+        /* News Section */
+        .news {
+            background-color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .news-item {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .news-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-item:hover .news-image img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Map Section */
+        .map-section {
+            background-color: var(--light);
+            padding: 0;
+        }
+
+        .map-container {
+            height: 500px;
+            width: 100%;
+        }
+
         /* Responsive Styles */
         @media (max-width: 1200px) {
             h1 {
@@ -1060,6 +1328,7 @@
                     <li><a href="#" class="nav-link" data-page="visitors">Visitors</a></li>
                     <li><a href="#" class="nav-link" data-page="products">Products</a></li>
                     <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
                     <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1135,6 +1404,104 @@
                     </div>
                     <div class="about-image">
                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Exhibition Hall">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="products">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Featured Products</h2>
+                    <p>Discover the latest innovations in frozen desserts, chocolates and beverages</p>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Ice Cream">
+                        </div>
+                        <div class="product-info">
+                            <h3>Artisan Ice Cream</h3>
+                            <p>Handcrafted ice creams with unique flavors and premium ingredients.</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1548907042-86a713b2c944?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Chocolate">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Chocolate</h3>
+                            <p>Luxury chocolates with exotic ingredients and innovative flavors.</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Beverages">
+                        </div>
+                        <div class="product-info">
+                            <h3>Functional Beverages</h3>
+                            <p>Health-focused drinks with added nutritional benefits and great taste.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="#" class="btn" data-page="products">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>What Our Exhibitors Say</h2>
+                    <p>Hear from past participants about their experience</p>
+                </div>
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "Vibrant India provided us with unparalleled access to the Indian market. We secured distribution partnerships with three major retailers and generated over ₹2 crore in business leads."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Kumar">
+                            </div>
+                            <div class="author-info">
+                                <h4>Rajesh Kumar</h4>
+                                <p>CEO, Frozen Delights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section class="sponsors">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Our Partners</h2>
+                    <p>Leading brands that trust our platform</p>
+                </div>
+                <div class="sponsor-grid">
+                    <div class="sponsor-item">
+                        <img src="https://via.placeholder.com/150x60/ff9800/ffffff?text=Amul" alt="Amul">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="https://via.placeholder.com/150x60/e91e63/ffffff?text=Havmor" alt="Havmor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="https://via.placeholder.com/150x60/9c27b0/ffffff?text=Vadilal" alt="Vadilal">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="https://via.placeholder.com/150x60/2196f3/ffffff?text=Cadbury" alt="Cadbury">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="https://via.placeholder.com/150x60/4caf50/ffffff?text=Pepsi" alt="Pepsi">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="https://via.placeholder.com/150x60/ff5722/ffffff?text=Coca-Cola" alt="Coca-Cola">
                     </div>
                 </div>
             </div>
@@ -1224,6 +1591,54 @@
                         <i class="fas fa-globe-asia"></i>
                         <h4>International Pavilion</h4>
                         <p>Dedicated area for international exhibitors to showcase products to the Indian market.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about the exhibition</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Who should exhibit at Vibrant India 2026?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Vibrant India 2026 is ideal for manufacturers, suppliers, and distributors of ice cream, chocolate, cold drinks, processing equipment, packaging solutions, ingredients, and related products and services. Both domestic and international companies are welcome.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are the exhibition timings?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The exhibition will be open from 10:00 AM to 6:00 PM from July 17-20, 2026. The venue is Gujarat University Convention and Exhibition Centre in Ahmedabad.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How can I register as a visitor?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Visitor registration will open in early 2026. You can pre-register on our website to receive updates and early access to registration. Entry is free for pre-registered trade visitors.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What safety measures are in place?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We prioritize the safety of all participants. The venue will have comprehensive safety protocols including emergency medical services, security personnel, and clear evacuation routes. All exhibitors must comply with safety regulations.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1322,6 +1737,32 @@
                 </div>
             </div>
         </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Exhibitor Testimonials</h2>
+                    <p>Hear from our past exhibitors about their experience</p>
+                </div>
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "We've been exhibiting at Vibrant India for the past three years, and each year has exceeded our expectations. The quality of visitors is exceptional, and we've established distribution networks across India through this platform."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma">
+                            </div>
+                            <div class="author-info">
+                                <h4>Priya Sharma</h4>
+                                <p>Marketing Director, ChocoDelight</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Visitors Page -->
@@ -1413,6 +1854,17 @@
                         <h4>Corporate Decision Makers</h4>
                         <p>CEOs, procurement managers, product developers, and marketing professionals.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitor Registration CTA -->
+        <section class="pricing" style="background: var(--gradient);">
+            <div class="container">
+                <div class="text-center">
+                    <h2 style="color: white;">Register as a Visitor</h2>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px;">Pre-register now for free entry and exclusive benefits</p>
+                    <a href="#" class="btn btn-secondary" style="background: var(--white); color: var(--primary);">Register Now</a>
                 </div>
             </div>
         </section>
@@ -1521,6 +1973,33 @@
                             <h3>Processing Equipment</h3>
                             <p>State-of-the-art machinery for tempering, molding, and enrobing.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Highlights Section -->
+        <section class="exhibitors-visitors">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Product Highlights</h2>
+                    <p>Featured innovations that will be showcased at the exhibition</p>
+                </div>
+                <div class="profile-list">
+                    <div class="profile-item">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Sustainable Packaging</h4>
+                        <p>Eco-friendly packaging solutions that reduce environmental impact without compromising quality.</p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-heart"></i>
+                        <h4>Health-Conscious Products</h4>
+                        <p>Low-sugar, high-protein, and functional ingredients for health-focused consumers.</p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-robot"></i>
+                        <h4>Automation Technology</h4>
+                        <p>Smart manufacturing solutions that increase efficiency and reduce operational costs.</p>
                     </div>
                 </div>
             </div>
@@ -1673,6 +2152,113 @@
         </section>
     </div>
 
+    <!-- Gallery Page -->
+    <div class="page" id="gallery-page">
+        <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Exhibition Gallery</h1>
+                    <p>Take a visual journey through past Vibrant India exhibitions</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Past Events Gallery</h2>
+                    <p>Experience the scale and energy of Vibrant India exhibitions</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Exhibition Hall">
+                        <div class="gallery-overlay">
+                            <h4>Main Exhibition Hall</h4>
+                            <p>Vibrant India 2024</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Product Display">
+                        <div class="gallery-overlay">
+                            <h4>Product Showcase</h4>
+                            <p>Innovative displays from leading brands</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Networking Session">
+                        <div class="gallery-overlay">
+                            <h4>Business Networking</h4>
+                            <p>Industry professionals connecting</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Live Demonstration">
+                        <div class="gallery-overlay">
+                            <h4>Live Demonstrations</h4>
+                            <p>Product experts showcasing innovations</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Award Ceremony">
+                        <div class="gallery-overlay">
+                            <h4>Awards Night</h4>
+                            <p>Celebrating industry excellence</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=2112&q=80" alt="Conference Session">
+                        <div class="gallery-overlay">
+                            <h4>Knowledge Sessions</h4>
+                            <p>Industry experts sharing insights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Latest News & Updates</h2>
+                    <p>Stay informed about the latest developments</p>
+                </div>
+                <div class="news-grid">
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Exhibition News">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">March 15, 2025</span>
+                            <h3>Early Bird Registration Now Open</h3>
+                            <p>Secure your exhibition space at discounted rates with our early bird offer valid until June 30, 2025.</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Industry News">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">February 28, 2025</span>
+                            <h3>New Product Categories Added</h3>
+                            <p>We've expanded our exhibition categories to include plant-based alternatives and sustainable packaging solutions.</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Partnership News">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">January 10, 2025</span>
+                            <h3>International Partnerships Announced</h3>
+                            <p>We're excited to welcome exhibitors from 15 new countries to Vibrant India 2026.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Contact Page -->
     <div class="page" id="contact-page">
         <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
@@ -1804,6 +2390,13 @@
                 </div>
             </div>
         </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.575911256434!2d72.55231431539385!3d23.18876688487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a0c6a6b4c7f%3A0x6a3b3b3b3b3b3b3b!2sGujarat%20University%20Convention%20and%20Exhibition%20Centre!5e0!3m2!1sen!2sin!4v1647856789012!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
@@ -1830,6 +2423,7 @@
                         <li><a href="#" data-page="visitors"><i class="fas fa-chevron-right"></i> Visitors</a></li>
                         <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Products</a></li>
                         <li><a href="#" data-page="pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="#" data-page="gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
                         <li><a href="#" data-page="contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -1861,7 +2455,15 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
         // Multi-page Navigation
         document.addEventListener('DOMContentLoaded', function() {
             // Page navigation
@@ -1969,6 +2571,25 @@
                 e.preventDefault();
                 alert('Thank you for your message! We will get back to you soon.');
                 this.reset();
+            });
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
             });
             
             // Scroll animations
