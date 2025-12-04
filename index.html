@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         /* Base Styles & Variables */
         :root {
@@ -1155,6 +1157,7 @@
             height: 250px;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -1631,6 +1634,198 @@
             bottom: 50px;
         }
 
+        /* Image Lightbox Custom Styles */
+        .lightbox-overlay {
+            background: rgba(0, 0, 0, 0.95) !important;
+        }
+
+        .lightbox-image {
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-container {
+            max-width: 90% !important;
+            max-height: 90% !important;
+        }
+
+        .lightbox-caption {
+            font-size: 1.2rem !important;
+            text-align: center !important;
+            margin-top: 20px !important;
+            color: white !important;
+            font-weight: 500 !important;
+        }
+
+        .lightbox-nav {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: 50% !important;
+            width: 60px !important;
+            height: 60px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: var(--transition) !important;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary) !important;
+        }
+
+        .lightbox-close {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: 50% !important;
+            width: 50px !important;
+            height: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: var(--transition) !important;
+            top: 20px !important;
+            right: 20px !important;
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary) !important;
+        }
+
+        /* Highlighted Dates Section */
+        .dates-highlight {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .dates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .date-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .date-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .date-card.highlighted {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .date-card.highlighted .date-number {
+            color: white;
+        }
+
+        .date-card.highlighted .date-label {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .date-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .date-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .date-description {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .date-card.highlighted .date-description {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Categories Highlight */
+        .categories-highlight {
+            background-color: var(--white);
+        }
+
+        .category-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .category-card.highlighted {
+            border: 3px solid var(--accent);
+        }
+
+        .category-icon {
+            background: var(--gradient);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .category-content {
+            padding: 30px;
+        }
+
+        .category-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
         /* Mobile Header Logo Fix */
         @media (max-width: 768px) {
             .logo-text {
@@ -1710,6 +1905,23 @@
                 bottom: 90px;
                 right: 20px;
             }
+            
+            .pricing-tables {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-table {
+                max-width: 400px;
+            }
+            
+            .pricing-table.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-table.featured:hover {
+                transform: translateY(-15px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1766,14 +1978,6 @@
                 text-align: left;
             }
             
-            .pricing-table.featured {
-                transform: scale(1);
-            }
-            
-            .pricing-table.featured:hover {
-                transform: translateY(-15px);
-            }
-            
             .form-row {
                 flex-direction: column;
                 gap: 0;
@@ -1796,6 +2000,14 @@
             .logo-icon {
                 font-size: 2.5rem;
                 margin-right: 0;
+            }
+            
+            .category-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .dates-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1847,6 +2059,14 @@
             
             .newsletter-form {
                 flex-direction: column;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1900,6 +2120,8 @@
                     <li><a href="#" class="nav-link" data-page="products">Products</a></li>
                     <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
                     <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-page="dates">Important Dates</a></li>
+                    <li><a href="#" class="nav-link" data-page="categories">Categories</a></li>
                     <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
@@ -2071,36 +2293,6 @@
                                 <p>International Sales Manager, Global Beverages</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sponsors Section -->
-        <section class="sponsors">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Our Partners</h2>
-                    <p>Leading brands that trust our platform</p>
-                </div>
-                <div class="sponsor-grid">
-                    <div class="sponsor-item">
-                        <img src="https://via.placeholder.com/150x60/ff9800/ffffff?text=Amul" alt="Amul">
-                    </div>
-                    <div class="sponsor-item">
-                        <img src="https://via.placeholder.com/150x60/e91e63/ffffff?text=Havmor" alt="Havmor">
-                    </div>
-                    <div class="sponsor-item">
-                        <img src="https://via.placeholder.com/150x60/9c27b0/ffffff?text=Vadilal" alt="Vadilal">
-                    </div>
-                    <div class="sponsor-item">
-                        <img src="https://via.placeholder.com/150x60/2196f3/ffffff?text=Cadbury" alt="Cadbury">
-                    </div>
-                    <div class="sponsor-item">
-                        <img src="https://via.placeholder.com/150x60/4caf50/ffffff?text=Pepsi" alt="Pepsi">
-                    </div>
-                    <div class="sponsor-item">
-                        <img src="https://via.placeholder.com/150x60/ff5722/ffffff?text=Coca-Cola" alt="Coca-Cola">
                     </div>
                 </div>
             </div>
@@ -2772,48 +2964,49 @@
                     <p>Experience the scale and energy of Vibrant India exhibitions</p>
                 </div>
                 <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Exhibition Hall">
+                    <!-- Gallery items with lightbox -->
+                    <a href="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" class="gallery-item" data-lightbox="gallery" data-title="Main Exhibition Hall - Vibrant India 2024">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Exhibition Hall">
                         <div class="gallery-overlay">
                             <h4>Main Exhibition Hall</h4>
                             <p>Vibrant India 2024</p>
                         </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Product Display">
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="gallery-item" data-lightbox="gallery" data-title="Product Showcase - Innovative displays from leading brands">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product Display">
                         <div class="gallery-overlay">
                             <h4>Product Showcase</h4>
                             <p>Innovative displays from leading brands</p>
                         </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Networking Session">
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="gallery-item" data-lightbox="gallery" data-title="Business Networking - Industry professionals connecting">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Networking Session">
                         <div class="gallery-overlay">
                             <h4>Business Networking</h4>
                             <p>Industry professionals connecting</p>
                         </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Live Demonstration">
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" class="gallery-item" data-lightbox="gallery" data-title="Live Demonstrations - Product experts showcasing innovations">
+                        <img src="https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Live Demonstration">
                         <div class="gallery-overlay">
                             <h4>Live Demonstrations</h4>
                             <p>Product experts showcasing innovations</p>
                         </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Award Ceremony">
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" class="gallery-item" data-lightbox="gallery" data-title="Awards Night - Celebrating industry excellence">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Award Ceremony">
                         <div class="gallery-overlay">
                             <h4>Awards Night</h4>
                             <p>Celebrating industry excellence</p>
                         </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=2112&q=80" alt="Conference Session">
+                    </a>
+                    <a href="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=2112&q=80" class="gallery-item" data-lightbox="gallery" data-title="Knowledge Sessions - Industry experts sharing insights">
+                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conference Session">
                         <div class="gallery-overlay">
                             <h4>Knowledge Sessions</h4>
                             <p>Industry experts sharing insights</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -2861,6 +3054,215 @@
         </section>
     </div>
 
+    <!-- Important Dates Page -->
+    <div class="page" id="dates-page">
+        <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Important Dates</h1>
+                    <p>Key milestones and deadlines for Vibrant India 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="dates-highlight">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Exhibition Timeline</h2>
+                    <p>Mark your calendar for these important dates</p>
+                </div>
+                <div class="dates-grid">
+                    <div class="date-card">
+                        <span class="date-number">17</span>
+                        <span class="date-label">July 2026</span>
+                        <p class="date-description">Day 1: Exhibition Inauguration & Grand Opening</p>
+                    </div>
+                    <div class="date-card">
+                        <span class="date-number">18</span>
+                        <span class="date-label">July 2026</span>
+                        <p class="date-description">Day 2: Product Innovation Showcase</p>
+                    </div>
+                    <div class="date-card highlighted">
+                        <span class="date-number">19</span>
+                        <span class="date-label">July 2026</span>
+                        <p class="date-description">Day 3: B2B Matchmaking & Networking</p>
+                    </div>
+                    <div class="date-card">
+                        <span class="date-number">20</span>
+                        <span class="date-label">July 2026</span>
+                        <p class="date-description">Day 4: Awards Ceremony & Closing</p>
+                    </div>
+                    <div class="date-card">
+                        <span class="date-number">30</span>
+                        <span class="date-label">June 2025</span>
+                        <p class="date-description">Early Bird Registration Deadline</p>
+                    </div>
+                    <div class="date-card">
+                        <span class="date-number">30</span>
+                        <span class="date-label">April 2026</span>
+                        <p class="date-description">Standard Registration Deadline</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="newsletter" style="background: var(--dark);">
+            <div class="container">
+                <h2 style="color: white;">Countdown to Exhibition</h2>
+                <p style="color: rgba(255,255,255,0.9);">Only a limited time left to register</p>
+                <div class="countdown" style="margin-top: 40px;">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days2">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours2">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes2">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds2">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="#" class="btn btn-secondary" id="datesExhibitBtn">Register Now</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Categories Page -->
+    <div class="page" id="categories-page">
+        <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Product Categories</h1>
+                    <p>Explore all exhibition categories in detail</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-highlight">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Featured Categories</h2>
+                    <p>Comprehensive coverage of the entire industry value chain</p>
+                </div>
+                <div class="category-cards">
+                    <div class="category-card highlighted">
+                        <div class="category-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3>Ice Cream & Frozen Desserts</h3>
+                            <p>Traditional ice cream, gelato, sorbet, frozen yogurt, vegan alternatives, and novelty products. Includes all types of frozen desserts and related equipment.</p>
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">200+</span>
+                                    <span class="stat-label">Exhibitors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">85%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3>Chocolate & Confectionery</h3>
+                            <p>Premium chocolate, sugar confectionery, healthy alternatives, and raw materials like cacao. Includes artisanal and industrial chocolate products.</p>
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">150+</span>
+                                    <span class="stat-label">Exhibitors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">72%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-wine-bottle"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3>Beverages & Cold Drinks</h3>
+                            <p>Water, tea, coffee, juices, sodas, energy drinks, alcoholic beverages, and dairy alternatives. Includes functional and health beverages.</p>
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">180+</span>
+                                    <span class="stat-label">Exhibitors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">68%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3>Processing Equipment</h3>
+                            <p>Production machinery, processing technology, automation solutions, and quality control equipment for all food processing needs.</p>
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">120+</span>
+                                    <span class="stat-label">Exhibitors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">55%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="about" style="background: var(--gradient); color: white;">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2 style="color: white;">Category Statistics</h2>
+                    <p style="color: rgba(255,255,255,0.9);">Industry growth and participation metrics</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
+                        <span class="stat-number" style="color: white;">500+</span>
+                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Total Exhibitors</span>
+                    </div>
+                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
+                        <span class="stat-number" style="color: white;">15K+</span>
+                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Expected Visitors</span>
+                    </div>
+                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
+                        <span class="stat-number" style="color: white;">50+</span>
+                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Countries</span>
+                    </div>
+                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
+                        <span class="stat-number" style="color: white;">₹200Cr+</span>
+                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Business Expected</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Contact Page -->
     <div class="page" id="contact-page">
         <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
@@ -2889,6 +3291,9 @@
                                 <h3>Narendra Diwakar</h3>
                                 <p>+91 99244 88938</p>
                                 <p>Exhibition Manager</p>
+                                <button class="btn btn-outline" style="margin-top: 10px; padding: 8px 20px; font-size: 0.9rem;" onclick="sendWhatsApp('+919924488938')">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -2899,6 +3304,9 @@
                                 <h3>Jigar Trivedi</h3>
                                 <p>+91 98240 31126</p>
                                 <p>Sales Director</p>
+                                <button class="btn btn-outline" style="margin-top: 10px; padding: 8px 20px; font-size: 0.9rem;" onclick="sendWhatsApp('+919824031126')">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -2909,6 +3317,9 @@
                                 <h3>Navin Trivedi</h3>
                                 <p>+91 79768 78862</p>
                                 <p>Operations Head</p>
+                                <button class="btn btn-outline" style="margin-top: 10px; padding: 8px 20px; font-size: 0.9rem;" onclick="sendWhatsApp('+917976878862')">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -2919,6 +3330,9 @@
                                 <h3>Jyoti</h3>
                                 <p>+91 85116 84938</p>
                                 <p>Customer Relations</p>
+                                <button class="btn btn-outline" style="margin-top: 10px; padding: 8px 20px; font-size: 0.9rem;" onclick="sendWhatsApp('+918511684938')">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -2928,6 +3342,9 @@
                             <div class="contact-details">
                                 <h3>Exhibition Venue</h3>
                                 <p>Gujarat University Convention and Exhibition Centre, Ahmedabad, Gujarat, India</p>
+                                <button class="btn btn-outline" style="margin-top: 10px; padding: 8px 20px; font-size: 0.9rem;" onclick="openMap()">
+                                    <i class="fas fa-map"></i> View on Map
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -2935,19 +3352,19 @@
                         <h3>Send us a Message</h3>
                         <form id="contactForm">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                <input type="text" class="form-control" id="contactName" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Your Phone">
+                                <input type="tel" class="form-control" id="contactPhone" placeholder="Your Phone">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Company Name">
+                                <input type="text" class="form-control" id="contactCompany" placeholder="Company Name">
                             </div>
                             <div class="form-group">
-                                <select class="form-control" required>
+                                <select class="form-control" id="contactInterest" required>
                                     <option value="" disabled selected>I'm interested in</option>
                                     <option value="exhibiting">Exhibiting</option>
                                     <option value="visiting">Visiting</option>
@@ -2957,9 +3374,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Your Message" required></textarea>
+                                <textarea class="form-control" id="contactMessage" placeholder="Your Message" required></textarea>
                             </div>
-                            <button type="submit" class="btn">Send Message</button>
+                            <button type="submit" class="btn" id="contactSubmitBtn">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -3026,6 +3443,8 @@
                         <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Products</a></li>
                         <li><a href="#" data-page="pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
                         <li><a href="#" data-page="gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="#" data-page="dates"><i class="fas fa-chevron-right"></i> Important Dates</a></li>
+                        <li><a href="#" data-page="categories"><i class="fas fa-chevron-right"></i> Categories</a></li>
                         <li><a href="#" data-page="contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -3094,13 +3513,13 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Company Name *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="exhibitorCompany" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Company Website</label>
-                                        <input type="url" class="form-control">
+                                        <input type="url" class="form-control" id="exhibitorWebsite">
                                     </div>
                                 </div>
                             </div>
@@ -3108,19 +3527,19 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Country *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="exhibitorCountry" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Year Established</label>
-                                        <input type="number" class="form-control" min="1900" max="2025">
+                                        <input type="number" class="form-control" id="exhibitorYear" min="1900" max="2025">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Company Description *</label>
-                                <textarea class="form-control" rows="3" required></textarea>
+                                <textarea class="form-control" id="exhibitorDescription" rows="3" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Products to Exhibit *</label>
@@ -3142,7 +3561,7 @@
                                         <div>Equipment</div>
                                     </div>
                                 </div>
-                                <input type="hidden" id="selectedProducts">
+                                <input type="hidden" id="exhibitorProducts">
                             </div>
                         </div>
                         
@@ -3151,7 +3570,7 @@
                             <h3>Package Selection</h3>
                             <div class="form-group">
                                 <label>Exhibition Package *</label>
-                                <select class="form-control" required>
+                                <select class="form-control" id="exhibitorPackage" required>
                                     <option value="" disabled selected>Select a package</option>
                                     <option value="indian-shell">Indian Exhibitor - Shell Scheme (₹13,000/m²)</option>
                                     <option value="indian-bare">Indian Exhibitor - Bare Space (₹12,500/m²)</option>
@@ -3163,13 +3582,13 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Space Required (m²) *</label>
-                                        <input type="number" class="form-control" min="9" max="100" required>
+                                        <input type="number" class="form-control" id="exhibitorSpace" min="9" max="100" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Preferred Hall Location</label>
-                                        <select class="form-control">
+                                        <select class="form-control" id="exhibitorHall">
                                             <option value="">Any</option>
                                             <option value="main">Main Hall</option>
                                             <option value="premium">Premium Hall</option>
@@ -3180,7 +3599,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Additional Requirements</label>
-                                <textarea class="form-control" rows="3" placeholder="Special requirements, additional equipment, etc."></textarea>
+                                <textarea class="form-control" id="exhibitorRequirements" rows="3" placeholder="Special requirements, additional equipment, etc."></textarea>
                             </div>
                         </div>
                         
@@ -3191,13 +3610,13 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Contact Person *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="exhibitorContact" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Designation *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="exhibitorDesignation" required>
                                     </div>
                                 </div>
                             </div>
@@ -3205,13 +3624,13 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Email *</label>
-                                        <input type="email" class="form-control" required>
+                                        <input type="email" class="form-control" id="exhibitorEmail" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Phone *</label>
-                                        <input type="tel" class="form-control" required>
+                                        <input type="tel" class="form-control" id="exhibitorPhone" required>
                                     </div>
                                 </div>
                             </div>
@@ -3219,13 +3638,13 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>Address *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="exhibitorAddress" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label>City *</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="exhibitorCity" required>
                                     </div>
                                 </div>
                             </div>
@@ -3270,13 +3689,13 @@
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Full Name *</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" id="visitorName" required>
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Designation *</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" id="visitorDesignation" required>
                                 </div>
                             </div>
                         </div>
@@ -3284,13 +3703,13 @@
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Email *</label>
-                                    <input type="email" class="form-control" required>
+                                    <input type="email" class="form-control" id="visitorEmail" required>
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Phone *</label>
-                                    <input type="tel" class="form-control" required>
+                                    <input type="tel" class="form-control" id="visitorPhone" required>
                                 </div>
                             </div>
                         </div>
@@ -3298,13 +3717,13 @@
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Company Name *</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" id="visitorCompany" required>
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Industry *</label>
-                                    <select class="form-control" required>
+                                    <select class="form-control" id="visitorIndustry" required>
                                         <option value="" disabled selected>Select Industry</option>
                                         <option value="retail">Retail</option>
                                         <option value="hospitality">Hospitality</option>
@@ -3318,42 +3737,42 @@
                         </div>
                         <div class="form-group">
                             <label>Company Address</label>
-                            <textarea class="form-control" rows="2"></textarea>
+                            <textarea class="form-control" id="visitorAddress" rows="2"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Products of Interest *</label>
                             <div class="form-checkbox-group">
-                                <input type="checkbox" id="icecream-interest" value="icecream">
-                                <label for="icecream-interest">Ice Cream & Frozen Desserts</label>
+                                <input type="checkbox" id="visitorIcecream" value="icecream">
+                                <label for="visitorIcecream">Ice Cream & Frozen Desserts</label>
                             </div>
                             <div class="form-checkbox-group">
-                                <input type="checkbox" id="chocolate-interest" value="chocolate">
-                                <label for="chocolate-interest">Chocolate & Confectionery</label>
+                                <input type="checkbox" id="visitorChocolate" value="chocolate">
+                                <label for="visitorChocolate">Chocolate & Confectionery</label>
                             </div>
                             <div class="form-checkbox-group">
-                                <input type="checkbox" id="beverage-interest" value="beverage">
-                                <label for="beverage-interest">Beverages</label>
+                                <input type="checkbox" id="visitorBeverage" value="beverage">
+                                <label for="visitorBeverage">Beverages</label>
                             </div>
                             <div class="form-checkbox-group">
-                                <input type="checkbox" id="equipment-interest" value="equipment">
-                                <label for="equipment-interest">Equipment & Technology</label>
+                                <input type="checkbox" id="visitorEquipment" value="equipment">
+                                <label for="visitorEquipment">Equipment & Technology</label>
                             </div>
                             <div class="form-checkbox-group">
-                                <input type="checkbox" id="packaging-interest" value="packaging">
-                                <label for="packaging-interest">Packaging Solutions</label>
+                                <input type="checkbox" id="visitorPackaging" value="packaging">
+                                <label for="visitorPackaging">Packaging Solutions</label>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Number of Visitors</label>
-                                    <input type="number" class="form-control" min="1" max="10" value="1">
+                                    <input type="number" class="form-control" id="visitorCount" min="1" max="10" value="1">
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
                                     <label>Preferred Visit Date</label>
-                                    <select class="form-control">
+                                    <select class="form-control" id="visitorDate">
                                         <option value="">Any Day</option>
                                         <option value="17">July 17, 2026</option>
                                         <option value="18">July 18, 2026</option>
@@ -3363,7 +3782,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn">Register as Visitor</button>
+                        <button type="submit" class="btn" id="visitorSubmitBtn">Register as Visitor</button>
                     </form>
                 </div>
             </div>
@@ -3373,7 +3792,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY_HERE"); // Replace with your EmailJS public key
+        })();
+
         // Initialize AOS
         AOS.init({
             duration: 1000,
@@ -3403,6 +3828,16 @@
                     }
                 }
             });
+        });
+
+        // Initialize Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': "Image %1 of %2",
+            'disableScrolling': true,
+            'fadeDuration': 300,
+            'imageFadeDuration': 300
         });
 
         // Multi-page Navigation
@@ -3500,22 +3935,23 @@
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
                 
+                // Update all countdown displays
                 document.getElementById('days').textContent = days.toString().padStart(2, '0');
                 document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
                 document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
                 document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (document.getElementById('days2')) {
+                    document.getElementById('days2').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('hours2').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes2').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds2').textContent = seconds.toString().padStart(2, '0');
+                }
             }
             
             // Update countdown every second
             setInterval(updateCountdown, 1000);
             updateCountdown(); // Initial call
-            
-            // Form Submission
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                showToast('Thank you for your message! We will get back to you soon.');
-                this.reset();
-            });
             
             // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
@@ -3592,7 +4028,7 @@
             
             // Floating Button Actions
             document.getElementById('whatsappBtn').addEventListener('click', () => {
-                window.open('https://wa.me/919924488938', '_blank');
+                sendWhatsApp('+919924488938');
             });
             
             // Registration Modal Triggers
@@ -3638,6 +4074,14 @@
                 exhibitorModal.classList.add('active');
             });
             
+            // Dates page button
+            if (document.getElementById('datesExhibitBtn')) {
+                document.getElementById('datesExhibitBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    exhibitorModal.classList.add('active');
+                });
+            }
+            
             // Close modal buttons
             document.getElementById('exhibitorModalClose').addEventListener('click', () => {
                 exhibitorModal.classList.remove('active');
@@ -3668,7 +4112,7 @@
             
             // Product selection in exhibitor form
             const productOptions = exhibitorForm.querySelectorAll('.product-option');
-            const selectedProductsInput = document.getElementById('selectedProducts');
+            const selectedProductsInput = document.getElementById('exhibitorProducts');
             let selectedProducts = [];
             
             productOptions.forEach(option => {
@@ -3763,19 +4207,181 @@
                 productOptions.forEach(option => option.classList.remove('selected'));
             });
             
-            // Visitor Form Submission
+            // Contact Form Submission with EmailJS
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('contactSubmitBtn');
+                const originalText = submitBtn.innerHTML;
+                
+                // Show loading state
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                // Get form data
+                const templateParams = {
+                    from_name: document.getElementById('contactName').value,
+                    from_email: document.getElementById('contactEmail').value,
+                    phone: document.getElementById('contactPhone').value,
+                    company: document.getElementById('contactCompany').value,
+                    interest: document.getElementById('contactInterest').value,
+                    message: document.getElementById('contactMessage').value,
+                    to_email: 'info@vibrantindia2026.com',
+                    subject: 'New Contact Form Submission - Vibrant India 2026'
+                };
+                
+                // Send email using EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function(response) {
+                        showToast('Thank you! Your message has been sent successfully.');
+                        document.getElementById('contactForm').reset();
+                        
+                        // Also send WhatsApp notification
+                        sendWhatsAppMessage(templateParams);
+                    }, function(error) {
+                        showToast('Error sending message. Please try again or contact us directly.');
+                        console.error('EmailJS Error:', error);
+                    })
+                    .finally(function() {
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+            });
+            
+            // Visitor Form Submission with EmailJS
             document.getElementById('visitorForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                showToast('Visitor registration successful! You will receive a confirmation email.');
-                visitorModal.classList.remove('active');
-                this.reset();
+                
+                const submitBtn = document.getElementById('visitorSubmitBtn');
+                const originalText = submitBtn.innerHTML;
+                
+                // Show loading state
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
+                submitBtn.disabled = true;
+                
+                // Get selected products
+                const products = [];
+                if (document.getElementById('visitorIcecream').checked) products.push('Ice Cream');
+                if (document.getElementById('visitorChocolate').checked) products.push('Chocolate');
+                if (document.getElementById('visitorBeverage').checked) products.push('Beverages');
+                if (document.getElementById('visitorEquipment').checked) products.push('Equipment');
+                if (document.getElementById('visitorPackaging').checked) products.push('Packaging');
+                
+                const templateParams = {
+                    from_name: document.getElementById('visitorName').value,
+                    from_email: document.getElementById('visitorEmail').value,
+                    phone: document.getElementById('visitorPhone').value,
+                    designation: document.getElementById('visitorDesignation').value,
+                    company: document.getElementById('visitorCompany').value,
+                    industry: document.getElementById('visitorIndustry').value,
+                    address: document.getElementById('visitorAddress').value,
+                    products: products.join(', '),
+                    visitor_count: document.getElementById('visitorCount').value,
+                    visit_date: document.getElementById('visitorDate').value,
+                    to_email: 'info@vibrantindia2026.com',
+                    subject: 'New Visitor Registration - Vibrant India 2026'
+                };
+                
+                // Send email using EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function(response) {
+                        showToast('Visitor registration successful! You will receive a confirmation email.');
+                        visitorModal.classList.remove('active');
+                        document.getElementById('visitorForm').reset();
+                    }, function(error) {
+                        showToast('Error submitting registration. Please try again or contact us directly.');
+                        console.error('EmailJS Error:', error);
+                    })
+                    .finally(function() {
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+            });
+            
+            // Exhibitor Form Submission with EmailJS
+            exhibitorForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (currentStep === 3) {
+                    const submitBtn = document.getElementById('nextBtn');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    // Show loading state
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                    submitBtn.disabled = true;
+                    
+                    const templateParams = {
+                        from_name: document.getElementById('exhibitorContact').value,
+                        from_email: document.getElementById('exhibitorEmail').value,
+                        phone: document.getElementById('exhibitorPhone').value,
+                        designation: document.getElementById('exhibitorDesignation').value,
+                        company: document.getElementById('exhibitorCompany').value,
+                        website: document.getElementById('exhibitorWebsite').value,
+                        country: document.getElementById('exhibitorCountry').value,
+                        year: document.getElementById('exhibitorYear').value,
+                        description: document.getElementById('exhibitorDescription').value,
+                        products: selectedProducts.join(', '),
+                        package: document.getElementById('exhibitorPackage').value,
+                        space: document.getElementById('exhibitorSpace').value + ' m²',
+                        hall: document.getElementById('exhibitorHall').value,
+                        requirements: document.getElementById('exhibitorRequirements').value,
+                        address: document.getElementById('exhibitorAddress').value,
+                        city: document.getElementById('exhibitorCity').value,
+                        to_email: 'info@vibrantindia2026.com',
+                        subject: 'New Exhibitor Registration - Vibrant India 2026'
+                    };
+                    
+                    // Send email using EmailJS
+                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                        .then(function(response) {
+                            currentStep++;
+                            showStep(currentStep);
+                        }, function(error) {
+                            showToast('Error submitting registration. Please try again or contact us directly.');
+                            console.error('EmailJS Error:', error);
+                        })
+                        .finally(function() {
+                            // Reset button
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        });
+                }
             });
             
             // Newsletter Form
             document.getElementById('newsletterForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                showToast('Thank you for subscribing to our newsletter!');
-                this.reset();
+                
+                const email = this.querySelector('input[type="email"]').value;
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                // Show loading state
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+                submitBtn.disabled = true;
+                
+                const templateParams = {
+                    from_email: email,
+                    to_email: 'info@vibrantindia2026.com',
+                    subject: 'New Newsletter Subscription - Vibrant India 2026'
+                };
+                
+                // Send email using EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function(response) {
+                        showToast('Thank you for subscribing to our newsletter!');
+                        document.getElementById('newsletterForm').reset();
+                    }, function(error) {
+                        showToast('Error subscribing. Please try again.');
+                        console.error('EmailJS Error:', error);
+                    })
+                    .finally(function() {
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
             });
             
             // Toast Notification
@@ -3819,6 +4425,51 @@
             
             window.addEventListener('scroll', checkScroll);
             checkScroll(); // Initial check
+            
+            // WhatsApp Functions
+            window.sendWhatsApp = function(phoneNumber) {
+                const message = `Hello! I'm interested in Vibrant India 2026 exhibition. Can you provide more information?`;
+                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+            };
+            
+            function sendWhatsAppMessage(formData) {
+                // This function sends a WhatsApp message to the admin
+                const phoneNumber = '+919924488938'; // Admin WhatsApp number
+                let message = `📢 New Contact Form Submission:\n\n`;
+                message += `Name: ${formData.from_name}\n`;
+                message += `Email: ${formData.from_email}\n`;
+                message += `Phone: ${formData.phone}\n`;
+                message += `Company: ${formData.company}\n`;
+                message += `Interest: ${formData.interest}\n`;
+                message += `Message: ${formData.message}\n\n`;
+                message += `Please follow up with this lead.`;
+                
+                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+            }
+            
+            window.openMap = function() {
+                const url = `https://www.google.com/maps/place/Gujarat+University+Convention+and+Exhibition+Centre/@23.1887669,72.5523143,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2a0c6a6b4c7f:0x6a3b3b3b3b3b3b3b!8m2!3d23.188762!4d72.5548892!16s%2Fg%2F11c4m3th12?entry=ttu`;
+                window.open(url, '_blank');
+            };
+            
+            // Add image preloader for better performance
+            function preloadImages() {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    const src = img.getAttribute('src');
+                    if (src) {
+                        const image = new Image();
+                        image.src = src;
+                    }
+                });
+            }
+            
+            // Call preloader after page loads
+            window.addEventListener('load', () => {
+                setTimeout(preloadImages, 1000);
+            });
         });
     </script>
 </body>
