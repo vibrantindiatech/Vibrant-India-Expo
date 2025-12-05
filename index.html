@@ -26,6 +26,7 @@
             --white: #fff;
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
             --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            --gradient-hero: linear-gradient(135deg, rgba(233, 30, 99, 0.9), rgba(156, 39, 176, 0.9));
             --shadow: 0 10px 30px rgba(0,0,0,0.1);
             --shadow-heavy: 0 20px 40px rgba(0,0,0,0.15);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -273,7 +274,7 @@
             color: var(--white);
         }
 
-        /* Hero Section */
+        /* Hero Section - UPDATED for highlighted dates & categories */
         .hero {
             background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
@@ -325,12 +326,104 @@
             animation: fadeInUp 1s ease 0.4s both;
         }
 
+        /* HIGHLIGHTED DATES SECTION IN HERO - SINGLE CARD ONLY */
+        .hero-highlights {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .highlight-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            min-width: 500px;
+            max-width: 600px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .highlight-dates {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--accent);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .highlight-location {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        /* HIGHLIGHTED CATEGORIES IN HERO - REMOVED FROM HERO, MOVED TO SECTION */
+        .categories-section {
+            background-color: var(--white);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .category-item {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .category-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .category-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .category-count {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-top: 15px;
+        }
+
         .countdown {
             display: flex;
             justify-content: center;
             gap: 25px;
             margin-top: 60px;
-            animation: fadeInUp 1s ease 0.6s both;
+            animation: fadeInUp 1s ease 0.8s both;
         }
 
         .countdown-item {
@@ -596,7 +689,7 @@
             color: var(--secondary);
         }
 
-        /* Products Section */
+        /* Products Section - UPDATED for 3 categories */
         .products {
             background-color: var(--white);
         }
@@ -841,6 +934,13 @@
             position: relative;
         }
 
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
         .form-control {
             width: 100%;
             padding: 16px 20px;
@@ -863,7 +963,7 @@
             resize: vertical;
         }
 
-        /* Registration Forms */
+        /* Registration Forms - IMPROVED */
         .registration-container {
             max-width: 800px;
             margin: 0 auto;
@@ -973,16 +1073,18 @@
 
         .form-checkbox-group input {
             margin-right: 10px;
+            width: 18px;
+            height: 18px;
         }
 
-        .product-selection {
+        .category-selection {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
 
-        .product-option {
+        .category-option {
             border: 2px solid #eee;
             border-radius: var(--border-radius);
             padding: 20px;
@@ -991,17 +1093,17 @@
             text-align: center;
         }
 
-        .product-option:hover {
+        .category-option:hover {
             border-color: var(--primary);
             transform: translateY(-5px);
         }
 
-        .product-option.selected {
+        .category-option.selected {
             border-color: var(--primary);
             background: rgba(233, 30, 99, 0.05);
         }
 
-        .product-option i {
+        .category-option i {
             font-size: 2rem;
             color: var(--primary);
             margin-bottom: 10px;
@@ -1689,83 +1791,18 @@
             background: var(--primary) !important;
         }
 
-        /* Highlighted Dates Section */
-        .dates-highlight {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .dates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .date-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .date-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .date-card.highlighted {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .date-card.highlighted .date-number {
-            color: white;
-        }
-
-        .date-card.highlighted .date-label {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .date-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .date-label {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .date-description {
-            font-size: 0.95rem;
-            color: var(--gray);
-        }
-
-        .date-card.highlighted .date-description {
-            color: rgba(255,255,255,0.9);
-        }
-
-        /* Categories Highlight */
-        .categories-highlight {
+        /* Categories Section */
+        .categories-section {
             background-color: var(--white);
         }
 
-        .category-cards {
+        .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .category-card {
+        .category-item {
             background: white;
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -1773,12 +1810,12 @@
             transition: var(--transition);
         }
 
-        .category-card:hover {
+        .category-item:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-heavy);
         }
 
-        .category-card.highlighted {
+        .category-item.highlighted {
             border: 3px solid var(--accent);
         }
 
@@ -1851,6 +1888,10 @@
             h2 {
                 font-size: 2.5rem;
             }
+            
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 992px) {
@@ -1864,6 +1905,22 @@
             
             .hero h1 {
                 font-size: 3.5rem;
+            }
+            
+            .hero-highlights {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .highlight-card {
+                width: 100%;
+                max-width: 500px;
+                min-width: auto;
+                padding: 25px;
+            }
+            
+            .highlight-dates {
+                font-size: 2.5rem;
             }
             
             .about-content {
@@ -1966,6 +2023,15 @@
                 align-items: center;
             }
             
+            .highlight-card {
+                padding: 20px;
+                min-width: 300px;
+            }
+            
+            .highlight-dates {
+                font-size: 2rem;
+            }
+            
             .countdown {
                 flex-wrap: wrap;
             }
@@ -2002,11 +2068,7 @@
                 margin-right: 0;
             }
             
-            .category-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .dates-grid {
+            .category-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -2030,6 +2092,15 @@
             
             .hero h1 {
                 font-size: 2.2rem;
+            }
+            
+            .highlight-card {
+                padding: 20px 15px;
+                min-width: 280px;
+            }
+            
+            .highlight-dates {
+                font-size: 1.8rem;
             }
             
             .countdown-item {
@@ -2120,8 +2191,6 @@
                     <li><a href="#" class="nav-link" data-page="products">Products</a></li>
                     <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
                     <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
-                    <li><a href="#" class="nav-link" data-page="dates">Important Dates</a></li>
-                    <li><a href="#" class="nav-link" data-page="categories">Categories</a></li>
                     <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
@@ -2130,18 +2199,23 @@
 
     <!-- Home Page -->
     <div class="page active" id="home-page">
-        <!-- Hero Section -->
+        <!-- Hero Section with SINGLE DATE CARD -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
                     <h1>Vibrant India 2026</h1>
                     <p>Ice-Cream, Chocolate, Cold-drink Exhibition</p>
-                    <p>JULY / 17-20 / 2026 • AHMEDABAD</p>
-                    <p>Gujarat University Convention and Exhibition Centre</p>
-                    <div class="hero-btns">
-                        <a href="#" class="btn" id="homeExhibitBtn">Book Your Stall</a>
-                        <a href="#" class="btn btn-secondary" id="homeVisitBtn">Register as Visitor</a>
+                    
+                    <!-- SINGLE DATE CARD ONLY -->
+                    <div class="hero-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-dates">July 17-20, 2026</div>
+                            <p>Gujarat University Convention and Exhibition Centre</p>
+                            <p class="highlight-location">Ahmedabad, Gujarat, India</p>
+                        </div>
                     </div>
+                    
+                    <!-- COUNTDOWN TIMER -->
                     <div class="countdown">
                         <div class="countdown-item">
                             <span class="countdown-number" id="days">00</span>
@@ -2158,6 +2232,80 @@
                         <div class="countdown-item">
                             <span class="countdown-number" id="seconds">00</span>
                             <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-btns">
+                        <a href="#" class="btn" id="homeExhibitBtn">Book Your Stall</a>
+                        <a href="#" class="btn btn-secondary" id="homeVisitBtn">Register as Visitor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section (Moved from Hero) -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Exhibition Categories</h2>
+                    <p>Comprehensive coverage of the frozen dessert, beverage and confectionery industry</p>
+                </div>
+                <div class="category-grid">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3>Ice Cream & Frozen Desserts</h3>
+                            <p>Traditional ice cream, gelato, sorbet, frozen yogurt, vegan alternatives, and novelty products.</p>
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">200+</span>
+                                    <span class="stat-label">Exhibitors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">85%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3>Chocolate & Confectionery</h3>
+                            <p>Premium chocolate, sugar confectionery, healthy alternatives, and raw materials like cacao.</p>
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">150+</span>
+                                    <span class="stat-label">Exhibitors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">72%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <i class="fas fa-wine-bottle"></i>
+                        </div>
+                        <div class="category-content">
+                            <h3>Cold Drinks & Beverages</h3>
+                            <p>Carbonated drinks, juices, energy drinks, functional beverages, dairy alternatives.</p>
+                            <div class="category-stats">
+                                <div class="stat">
+                                    <span class="stat-value">180+</span>
+                                    <span class="stat-label">Exhibitors</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">68%</span>
+                                    <span class="stat-label">Growth</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2207,34 +2355,72 @@
             <div class="container">
                 <div class="section-title text-center">
                     <h2>Featured Products</h2>
-                    <p>Discover the latest innovations in frozen desserts, chocolates and beverages</p>
+                    <p>Discover the latest innovations in our three main categories</p>
+                </div>
+                <div class="product-categories">
+                    <div class="product-category active" data-category="all">All Products</div>
+                    <div class="product-category" data-category="icecream">Ice Cream</div>
+                    <div class="product-category" data-category="chocolate">Chocolate</div>
+                    <div class="product-category" data-category="colddrink">Cold Drinks</div>
                 </div>
                 <div class="product-grid">
-                    <div class="product-card">
+                    <!-- Ice Cream Products -->
+                    <div class="product-card" data-category="icecream">
                         <div class="product-image">
                             <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Ice Cream">
                         </div>
                         <div class="product-info">
-                            <h3>Ice Cream & Frozen Desserts</h3>
-                            <p>Traditional ice cream, gelato, sorbet, frozen yogurt, vegan alternatives, and novelty products.</p>
+                            <h3>Premium Ice Cream</h3>
+                            <p>Artisanal and traditional ice creams with premium ingredients and innovative flavors.</p>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="icecream">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80" alt="Vegan Ice Cream">
+                        </div>
+                        <div class="product-info">
+                            <h3>Vegan Ice Cream</h3>
+                            <p>Plant-based frozen desserts catering to the growing demand for dairy-free options.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chocolate Products -->
+                    <div class="product-card" data-category="chocolate">
                         <div class="product-image">
                             <img src="https://images.unsplash.com/photo-1548907042-86a713b2c944?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Chocolate">
                         </div>
                         <div class="product-info">
-                            <h3>Chocolate & Confectionery</h3>
-                            <p>Premium chocolate, sugar confectionery, healthy alternatives, and raw materials like cacao.</p>
+                            <h3>Artisan Chocolate</h3>
+                            <p>Handcrafted chocolates with unique flavor profiles and premium ingredients.</p>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-category="chocolate">
                         <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Beverages">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Cacao">
                         </div>
                         <div class="product-info">
-                            <h3>Cold Drinks & Beverages</h3>
-                            <p>Water, tea, coffee, juices, sodas, energy drinks, alcoholic beverages, and dairy alternatives.</p>
+                            <h3>Single-Origin Chocolate</h3>
+                            <p>Premium chocolate made from beans sourced from specific regions for unique flavors.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Cold Drink Products -->
+                    <div class="product-card" data-category="colddrink">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Cold Drinks">
+                        </div>
+                        <div class="product-info">
+                            <h3>Functional Beverages</h3>
+                            <p>Health-focused drinks with added benefits like probiotics, vitamins, and antioxidants.</p>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="colddrink">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Energy Drinks">
+                        </div>
+                        <div class="product-info">
+                            <h3>Energy & Sports Drinks</h3>
+                            <p>Performance-enhancing beverages for athletes and active consumers.</p>
                         </div>
                     </div>
                 </div>
@@ -2613,23 +2799,8 @@
                     </div>
                     <div class="profile-item">
                         <i class="fas fa-wine-bottle"></i>
-                        <h4>Beverages</h4>
+                        <h4>Cold Drinks & Beverages</h4>
                         <p>Carbonated drinks, juices, energy drinks, dairy alternatives, and functional beverages.</p>
-                    </div>
-                    <div class="profile-item">
-                        <i class="fas fa-industry"></i>
-                        <h4>Processing Equipment</h4>
-                        <p>Production machinery, processing technology, and automation solutions.</p>
-                    </div>
-                    <div class="profile-item">
-                        <i class="fas fa-box"></i>
-                        <h4>Packaging Solutions</h4>
-                        <p>Innovative packaging materials, machinery, and sustainable solutions.</p>
-                    </div>
-                    <div class="profile-item">
-                        <i class="fas fa-flask"></i>
-                        <h4>Ingredients & Raw Materials</h4>
-                        <p>Flavors, colors, sweeteners, stabilizers, and specialty ingredients.</p>
                     </div>
                 </div>
             </div>
@@ -2758,7 +2929,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Product Categories</h1>
-                    <p>Explore the complete range of products and technologies</p>
+                    <p>Explore our three main categories in detail</p>
                 </div>
             </div>
         </section>
@@ -2767,14 +2938,13 @@
             <div class="container">
                 <div class="section-title text-center">
                     <h2>Featured Products</h2>
-                    <p>Discover innovations across all product categories</p>
+                    <p>Discover innovations across all three main categories</p>
                 </div>
                 <div class="product-categories">
                     <div class="product-category active" data-category="all">All Products</div>
                     <div class="product-category" data-category="icecream">Ice Cream</div>
                     <div class="product-category" data-category="chocolate">Chocolate</div>
-                    <div class="product-category" data-category="beverage">Beverages</div>
-                    <div class="product-category" data-category="equipment">Equipment</div>
+                    <div class="product-category" data-category="colddrink">Cold Drinks</div>
                 </div>
                 <div class="product-grid">
                     <!-- Ice Cream Products -->
@@ -2817,8 +2987,8 @@
                         </div>
                     </div>
                     
-                    <!-- Beverage Products -->
-                    <div class="product-card" data-category="beverage">
+                    <!-- Cold Drink Products -->
+                    <div class="product-card" data-category="colddrink">
                         <div class="product-image">
                             <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Cold Drinks">
                         </div>
@@ -2827,7 +2997,7 @@
                             <p>Health-focused drinks with added benefits like probiotics, vitamins, and antioxidants.</p>
                         </div>
                     </div>
-                    <div class="product-card" data-category="beverage">
+                    <div class="product-card" data-category="colddrink">
                         <div class="product-image">
                             <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Energy Drinks">
                         </div>
@@ -2837,23 +3007,23 @@
                         </div>
                     </div>
                     
-                    <!-- Equipment Products -->
-                    <div class="product-card" data-category="equipment">
+                    <!-- More Products -->
+                    <div class="product-card" data-category="icecream">
                         <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Ice Cream Production">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Ice Cream Varieties">
                         </div>
                         <div class="product-info">
-                            <h3>Production Lines</h3>
-                            <p>Complete automated production systems for efficient manufacturing.</p>
+                            <h3>Ice Cream Varieties</h3>
+                            <p>From classic flavors to innovative combinations, explore the best of frozen desserts.</p>
                         </div>
                     </div>
-                    <div class="product-card" data-category="equipment">
+                    <div class="product-card" data-category="chocolate">
                         <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1587132135057-6a04a1968c1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80" alt="Chocolate Production">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Chocolate Collections">
                         </div>
                         <div class="product-info">
-                            <h3>Processing Equipment</h3>
-                            <p>State-of-the-art machinery for tempering, molding, and enrobing.</p>
+                            <h3>Chocolate Collections</h3>
+                            <p>Premium chocolate assortments and gift collections for every occasion.</p>
                         </div>
                     </div>
                 </div>
@@ -3054,215 +3224,6 @@
         </section>
     </div>
 
-    <!-- Important Dates Page -->
-    <div class="page" id="dates-page">
-        <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Important Dates</h1>
-                    <p>Key milestones and deadlines for Vibrant India 2026</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="dates-highlight">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Exhibition Timeline</h2>
-                    <p>Mark your calendar for these important dates</p>
-                </div>
-                <div class="dates-grid">
-                    <div class="date-card">
-                        <span class="date-number">17</span>
-                        <span class="date-label">July 2026</span>
-                        <p class="date-description">Day 1: Exhibition Inauguration & Grand Opening</p>
-                    </div>
-                    <div class="date-card">
-                        <span class="date-number">18</span>
-                        <span class="date-label">July 2026</span>
-                        <p class="date-description">Day 2: Product Innovation Showcase</p>
-                    </div>
-                    <div class="date-card highlighted">
-                        <span class="date-number">19</span>
-                        <span class="date-label">July 2026</span>
-                        <p class="date-description">Day 3: B2B Matchmaking & Networking</p>
-                    </div>
-                    <div class="date-card">
-                        <span class="date-number">20</span>
-                        <span class="date-label">July 2026</span>
-                        <p class="date-description">Day 4: Awards Ceremony & Closing</p>
-                    </div>
-                    <div class="date-card">
-                        <span class="date-number">30</span>
-                        <span class="date-label">June 2025</span>
-                        <p class="date-description">Early Bird Registration Deadline</p>
-                    </div>
-                    <div class="date-card">
-                        <span class="date-number">30</span>
-                        <span class="date-label">April 2026</span>
-                        <p class="date-description">Standard Registration Deadline</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Countdown Section -->
-        <section class="newsletter" style="background: var(--dark);">
-            <div class="container">
-                <h2 style="color: white;">Countdown to Exhibition</h2>
-                <p style="color: rgba(255,255,255,0.9);">Only a limited time left to register</p>
-                <div class="countdown" style="margin-top: 40px;">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="days2">00</span>
-                        <span class="countdown-label">Days</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours2">00</span>
-                        <span class="countdown-label">Hours</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes2">00</span>
-                        <span class="countdown-label">Minutes</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds2">00</span>
-                        <span class="countdown-label">Seconds</span>
-                    </div>
-                </div>
-                <div class="text-center" style="margin-top: 50px;">
-                    <a href="#" class="btn btn-secondary" id="datesExhibitBtn">Register Now</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Categories Page -->
-    <div class="page" id="categories-page">
-        <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Product Categories</h1>
-                    <p>Explore all exhibition categories in detail</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="categories-highlight">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Featured Categories</h2>
-                    <p>Comprehensive coverage of the entire industry value chain</p>
-                </div>
-                <div class="category-cards">
-                    <div class="category-card highlighted">
-                        <div class="category-icon">
-                            <i class="fas fa-ice-cream"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>Ice Cream & Frozen Desserts</h3>
-                            <p>Traditional ice cream, gelato, sorbet, frozen yogurt, vegan alternatives, and novelty products. Includes all types of frozen desserts and related equipment.</p>
-                            <div class="category-stats">
-                                <div class="stat">
-                                    <span class="stat-value">200+</span>
-                                    <span class="stat-label">Exhibitors</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">85%</span>
-                                    <span class="stat-label">Growth</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-cookie-bite"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>Chocolate & Confectionery</h3>
-                            <p>Premium chocolate, sugar confectionery, healthy alternatives, and raw materials like cacao. Includes artisanal and industrial chocolate products.</p>
-                            <div class="category-stats">
-                                <div class="stat">
-                                    <span class="stat-value">150+</span>
-                                    <span class="stat-label">Exhibitors</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">72%</span>
-                                    <span class="stat-label">Growth</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-wine-bottle"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>Beverages & Cold Drinks</h3>
-                            <p>Water, tea, coffee, juices, sodas, energy drinks, alcoholic beverages, and dairy alternatives. Includes functional and health beverages.</p>
-                            <div class="category-stats">
-                                <div class="stat">
-                                    <span class="stat-value">180+</span>
-                                    <span class="stat-label">Exhibitors</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">68%</span>
-                                    <span class="stat-label">Growth</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-industry"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>Processing Equipment</h3>
-                            <p>Production machinery, processing technology, automation solutions, and quality control equipment for all food processing needs.</p>
-                            <div class="category-stats">
-                                <div class="stat">
-                                    <span class="stat-value">120+</span>
-                                    <span class="stat-label">Exhibitors</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">55%</span>
-                                    <span class="stat-label">Growth</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Statistics Section -->
-        <section class="about" style="background: var(--gradient); color: white;">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2 style="color: white;">Category Statistics</h2>
-                    <p style="color: rgba(255,255,255,0.9);">Industry growth and participation metrics</p>
-                </div>
-                <div class="stats">
-                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
-                        <span class="stat-number" style="color: white;">500+</span>
-                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Total Exhibitors</span>
-                    </div>
-                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
-                        <span class="stat-number" style="color: white;">15K+</span>
-                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Expected Visitors</span>
-                    </div>
-                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
-                        <span class="stat-number" style="color: white;">50+</span>
-                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Countries</span>
-                    </div>
-                    <div class="stat-item" style="background: rgba(255,255,255,0.1);">
-                        <span class="stat-number" style="color: white;">₹200Cr+</span>
-                        <span class="stat-label" style="color: rgba(255,255,255,0.9);">Business Expected</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
     <!-- Contact Page -->
     <div class="page" id="contact-page">
         <section class="hero" style="background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; padding: 150px 0 80px;">
@@ -3352,20 +3313,25 @@
                         <h3>Send us a Message</h3>
                         <form id="contactForm">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="contactName" placeholder="Your Name" required>
+                                <label for="contactName">Your Name *</label>
+                                <input type="text" class="form-control" id="contactName" placeholder="Enter your full name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="contactEmail" placeholder="Your Email" required>
+                                <label for="contactEmail">Your Email *</label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email address" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" id="contactPhone" placeholder="Your Phone">
+                                <label for="contactPhone">Your Phone *</label>
+                                <input type="tel" class="form-control" id="contactPhone" placeholder="Enter your phone number" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="contactCompany" placeholder="Company Name">
+                                <label for="contactCompany">Company Name</label>
+                                <input type="text" class="form-control" id="contactCompany" placeholder="Enter your company name">
                             </div>
                             <div class="form-group">
+                                <label for="contactInterest">I'm interested in *</label>
                                 <select class="form-control" id="contactInterest" required>
-                                    <option value="" disabled selected>I'm interested in</option>
+                                    <option value="" disabled selected>Select an option</option>
                                     <option value="exhibiting">Exhibiting</option>
                                     <option value="visiting">Visiting</option>
                                     <option value="sponsoring">Sponsoring</option>
@@ -3374,7 +3340,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" id="contactMessage" placeholder="Your Message" required></textarea>
+                                <label for="contactMessage">Your Message *</label>
+                                <textarea class="form-control" id="contactMessage" placeholder="Enter your message here" required></textarea>
                             </div>
                             <button type="submit" class="btn" id="contactSubmitBtn">Send Message</button>
                         </form>
@@ -3443,8 +3410,6 @@
                         <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Products</a></li>
                         <li><a href="#" data-page="pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
                         <li><a href="#" data-page="gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-                        <li><a href="#" data-page="dates"><i class="fas fa-chevron-right"></i> Important Dates</a></li>
-                        <li><a href="#" data-page="categories"><i class="fas fa-chevron-right"></i> Categories</a></li>
                         <li><a href="#" data-page="contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -3454,9 +3419,6 @@
                         <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Ice Cream</a></li>
                         <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Chocolate</a></li>
                         <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Cold Drink</a></li>
-                        <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Production Equipment</a></li>
-                        <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Raw Materials</a></li>
-                        <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i> Packaging Solutions</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -3471,7 +3433,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Vibrant India 2026. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for the Food Industry</p>
+                <p>&copy; 2025 Vibrant India 2026. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for the Food Industry</p>
             </div>
         </div>
     </footer>
@@ -3509,59 +3471,45 @@
                         <!-- Step 1: Company Information -->
                         <div class="form-step active" data-step="1">
                             <h3>Company Information</h3>
-                            <div class="form-row">
-                                <div class="form-col">
-                                    <div class="form-group">
-                                        <label>Company Name *</label>
-                                        <input type="text" class="form-control" id="exhibitorCompany" required>
-                                    </div>
-                                </div>
-                                <div class="form-col">
-                                    <div class="form-group">
-                                        <label>Company Website</label>
-                                        <input type="url" class="form-control" id="exhibitorWebsite">
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label for="exhibitorCompany">Company Name *</label>
+                                <input type="text" class="form-control" id="exhibitorCompany" required>
                             </div>
                             <div class="form-row">
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Country *</label>
-                                        <input type="text" class="form-control" id="exhibitorCountry" required>
+                                        <label for="exhibitorWebsite">Company Website</label>
+                                        <input type="url" class="form-control" id="exhibitorWebsite">
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Year Established</label>
-                                        <input type="number" class="form-control" id="exhibitorYear" min="1900" max="2025">
+                                        <label for="exhibitorCountry">Country *</label>
+                                        <input type="text" class="form-control" id="exhibitorCountry" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Company Description *</label>
+                                <label for="exhibitorDescription">Company Description *</label>
                                 <textarea class="form-control" id="exhibitorDescription" rows="3" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Products to Exhibit *</label>
-                                <div class="product-selection">
-                                    <div class="product-option" data-product="icecream">
+                                <div class="category-selection">
+                                    <div class="category-option" data-category="icecream">
                                         <i class="fas fa-ice-cream"></i>
                                         <div>Ice Cream</div>
                                     </div>
-                                    <div class="product-option" data-product="chocolate">
+                                    <div class="category-option" data-category="chocolate">
                                         <i class="fas fa-cookie-bite"></i>
                                         <div>Chocolate</div>
                                     </div>
-                                    <div class="product-option" data-product="beverage">
+                                    <div class="category-option" data-category="colddrink">
                                         <i class="fas fa-wine-bottle"></i>
-                                        <div>Beverages</div>
-                                    </div>
-                                    <div class="product-option" data-product="equipment">
-                                        <i class="fas fa-industry"></i>
-                                        <div>Equipment</div>
+                                        <div>Cold Drinks</div>
                                     </div>
                                 </div>
-                                <input type="hidden" id="exhibitorProducts">
+                                <input type="hidden" id="exhibitorCategories">
                             </div>
                         </div>
                         
@@ -3569,7 +3517,7 @@
                         <div class="form-step" data-step="2">
                             <h3>Package Selection</h3>
                             <div class="form-group">
-                                <label>Exhibition Package *</label>
+                                <label for="exhibitorPackage">Exhibition Package *</label>
                                 <select class="form-control" id="exhibitorPackage" required>
                                     <option value="" disabled selected>Select a package</option>
                                     <option value="indian-shell">Indian Exhibitor - Shell Scheme (₹13,000/m²)</option>
@@ -3581,13 +3529,13 @@
                             <div class="form-row">
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Space Required (m²) *</label>
+                                        <label for="exhibitorSpace">Space Required (m²) *</label>
                                         <input type="number" class="form-control" id="exhibitorSpace" min="9" max="100" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Preferred Hall Location</label>
+                                        <label for="exhibitorHall">Preferred Hall Location</label>
                                         <select class="form-control" id="exhibitorHall">
                                             <option value="">Any</option>
                                             <option value="main">Main Hall</option>
@@ -3598,7 +3546,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Additional Requirements</label>
+                                <label for="exhibitorRequirements">Additional Requirements</label>
                                 <textarea class="form-control" id="exhibitorRequirements" rows="3" placeholder="Special requirements, additional equipment, etc."></textarea>
                             </div>
                         </div>
@@ -3609,13 +3557,13 @@
                             <div class="form-row">
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Contact Person *</label>
+                                        <label for="exhibitorContact">Contact Person *</label>
                                         <input type="text" class="form-control" id="exhibitorContact" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Designation *</label>
+                                        <label for="exhibitorDesignation">Designation *</label>
                                         <input type="text" class="form-control" id="exhibitorDesignation" required>
                                     </div>
                                 </div>
@@ -3623,13 +3571,13 @@
                             <div class="form-row">
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Email *</label>
+                                        <label for="exhibitorEmail">Email *</label>
                                         <input type="email" class="form-control" id="exhibitorEmail" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Phone *</label>
+                                        <label for="exhibitorPhone">Phone *</label>
                                         <input type="tel" class="form-control" id="exhibitorPhone" required>
                                     </div>
                                 </div>
@@ -3637,13 +3585,13 @@
                             <div class="form-row">
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>Address *</label>
+                                        <label for="exhibitorAddress">Address *</label>
                                         <input type="text" class="form-control" id="exhibitorAddress" required>
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
-                                        <label>City *</label>
+                                        <label for="exhibitorCity">City *</label>
                                         <input type="text" class="form-control" id="exhibitorCity" required>
                                     </div>
                                 </div>
@@ -3688,13 +3636,13 @@
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Full Name *</label>
+                                    <label for="visitorName">Full Name *</label>
                                     <input type="text" class="form-control" id="visitorName" required>
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Designation *</label>
+                                    <label for="visitorDesignation">Designation *</label>
                                     <input type="text" class="form-control" id="visitorDesignation" required>
                                 </div>
                             </div>
@@ -3702,13 +3650,13 @@
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Email *</label>
+                                    <label for="visitorEmail">Email *</label>
                                     <input type="email" class="form-control" id="visitorEmail" required>
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Phone *</label>
+                                    <label for="visitorPhone">Phone *</label>
                                     <input type="tel" class="form-control" id="visitorPhone" required>
                                 </div>
                             </div>
@@ -3716,13 +3664,13 @@
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Company Name *</label>
+                                    <label for="visitorCompany">Company Name *</label>
                                     <input type="text" class="form-control" id="visitorCompany" required>
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Industry *</label>
+                                    <label for="visitorIndustry">Industry *</label>
                                     <select class="form-control" id="visitorIndustry" required>
                                         <option value="" disabled selected>Select Industry</option>
                                         <option value="retail">Retail</option>
@@ -3736,11 +3684,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Company Address</label>
+                            <label for="visitorAddress">Company Address</label>
                             <textarea class="form-control" id="visitorAddress" rows="2"></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Products of Interest *</label>
+                            <label>Categories of Interest *</label>
                             <div class="form-checkbox-group">
                                 <input type="checkbox" id="visitorIcecream" value="icecream">
                                 <label for="visitorIcecream">Ice Cream & Frozen Desserts</label>
@@ -3750,28 +3698,20 @@
                                 <label for="visitorChocolate">Chocolate & Confectionery</label>
                             </div>
                             <div class="form-checkbox-group">
-                                <input type="checkbox" id="visitorBeverage" value="beverage">
-                                <label for="visitorBeverage">Beverages</label>
-                            </div>
-                            <div class="form-checkbox-group">
-                                <input type="checkbox" id="visitorEquipment" value="equipment">
-                                <label for="visitorEquipment">Equipment & Technology</label>
-                            </div>
-                            <div class="form-checkbox-group">
-                                <input type="checkbox" id="visitorPackaging" value="packaging">
-                                <label for="visitorPackaging">Packaging Solutions</label>
+                                <input type="checkbox" id="visitorColddrink" value="colddrink">
+                                <label for="visitorColddrink">Cold Drinks & Beverages</label>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Number of Visitors</label>
+                                    <label for="visitorCount">Number of Visitors</label>
                                     <input type="number" class="form-control" id="visitorCount" min="1" max="10" value="1">
                                 </div>
                             </div>
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label>Preferred Visit Date</label>
+                                    <label for="visitorDate">Preferred Visit Date</label>
                                     <select class="form-control" id="visitorDate">
                                         <option value="">Any Day</option>
                                         <option value="17">July 17, 2026</option>
@@ -3789,12 +3729,13 @@
         </div>
     </div>
 
+    <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
-        // Initialize EmailJS
+        // Initialize EmailJS with your Public Key
         (function() {
             emailjs.init("YOUR_PUBLIC_KEY_HERE"); // Replace with your EmailJS public key
         })();
@@ -3840,7 +3781,7 @@
             'imageFadeDuration': 300
         });
 
-        // Multi-page Navigation
+        // DOM Ready Function
         document.addEventListener('DOMContentLoaded', function() {
             // Page navigation
             const navLinks = document.querySelectorAll('.nav-link, .logo, .btn[data-page], .footer-links a[data-page]');
@@ -3924,7 +3865,7 @@
                 });
             });
             
-            // Countdown Timer
+            // Countdown Timer Function
             function updateCountdown() {
                 const targetDate = new Date('July 17, 2026 00:00:00').getTime();
                 const now = new Date().getTime();
@@ -3940,13 +3881,6 @@
                 document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
                 document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
                 document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-                
-                if (document.getElementById('days2')) {
-                    document.getElementById('days2').textContent = days.toString().padStart(2, '0');
-                    document.getElementById('hours2').textContent = hours.toString().padStart(2, '0');
-                    document.getElementById('minutes2').textContent = minutes.toString().padStart(2, '0');
-                    document.getElementById('seconds2').textContent = seconds.toString().padStart(2, '0');
-                }
             }
             
             // Update countdown every second
@@ -4074,30 +4008,26 @@
                 exhibitorModal.classList.add('active');
             });
             
-            // Dates page button
-            if (document.getElementById('datesExhibitBtn')) {
-                document.getElementById('datesExhibitBtn').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    exhibitorModal.classList.add('active');
-                });
-            }
-            
             // Close modal buttons
             document.getElementById('exhibitorModalClose').addEventListener('click', () => {
                 exhibitorModal.classList.remove('active');
+                resetExhibitorForm();
             });
             
             document.getElementById('visitorModalClose').addEventListener('click', () => {
                 visitorModal.classList.remove('active');
+                document.getElementById('visitorForm').reset();
             });
             
             // Close modal when clicking outside
             window.addEventListener('click', (e) => {
                 if (e.target === exhibitorModal) {
                     exhibitorModal.classList.remove('active');
+                    resetExhibitorForm();
                 }
                 if (e.target === visitorModal) {
                     visitorModal.classList.remove('active');
+                    document.getElementById('visitorForm').reset();
                 }
             });
             
@@ -4110,25 +4040,25 @@
             const closeModalBtn = document.getElementById('closeModalBtn');
             let currentStep = 0;
             
-            // Product selection in exhibitor form
-            const productOptions = exhibitorForm.querySelectorAll('.product-option');
-            const selectedProductsInput = document.getElementById('exhibitorProducts');
-            let selectedProducts = [];
+            // Category selection in exhibitor form
+            const categoryOptions = exhibitorForm.querySelectorAll('.category-option');
+            const selectedCategoriesInput = document.getElementById('exhibitorCategories');
+            let selectedCategories = [];
             
-            productOptions.forEach(option => {
+            categoryOptions.forEach(option => {
                 option.addEventListener('click', () => {
-                    const product = option.getAttribute('data-product');
-                    const index = selectedProducts.indexOf(product);
+                    const category = option.getAttribute('data-category');
+                    const index = selectedCategories.indexOf(category);
                     
                     if (index === -1) {
-                        selectedProducts.push(product);
+                        selectedCategories.push(category);
                         option.classList.add('selected');
                     } else {
-                        selectedProducts.splice(index, 1);
+                        selectedCategories.splice(index, 1);
                         option.classList.remove('selected');
                     }
                     
-                    selectedProductsInput.value = selectedProducts.join(',');
+                    selectedCategoriesInput.value = selectedCategories.join(',');
                 });
             });
             
@@ -4179,6 +4109,12 @@
                     }
                 });
                 
+                // Validate category selection for step 1
+                if (currentStep === 0 && selectedCategories.length === 0) {
+                    isValid = false;
+                    showToast('Please select at least one product category');
+                }
+                
                 if (isValid) {
                     if (currentStep < formSteps.length - 1) {
                         currentStep++;
@@ -4198,14 +4134,17 @@
             
             closeModalBtn.addEventListener('click', () => {
                 exhibitorModal.classList.remove('active');
-                // Reset form
+                resetExhibitorForm();
+            });
+            
+            function resetExhibitorForm() {
                 exhibitorForm.reset();
                 currentStep = 0;
                 showStep(currentStep);
-                selectedProducts = [];
-                selectedProductsInput.value = '';
-                productOptions.forEach(option => option.classList.remove('selected'));
-            });
+                selectedCategories = [];
+                selectedCategoriesInput.value = '';
+                categoryOptions.forEach(option => option.classList.remove('selected'));
+            }
             
             // Contact Form Submission with EmailJS
             document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -4260,13 +4199,11 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
                 submitBtn.disabled = true;
                 
-                // Get selected products
-                const products = [];
-                if (document.getElementById('visitorIcecream').checked) products.push('Ice Cream');
-                if (document.getElementById('visitorChocolate').checked) products.push('Chocolate');
-                if (document.getElementById('visitorBeverage').checked) products.push('Beverages');
-                if (document.getElementById('visitorEquipment').checked) products.push('Equipment');
-                if (document.getElementById('visitorPackaging').checked) products.push('Packaging');
+                // Get selected categories
+                const categories = [];
+                if (document.getElementById('visitorIcecream').checked) categories.push('Ice Cream');
+                if (document.getElementById('visitorChocolate').checked) categories.push('Chocolate');
+                if (document.getElementById('visitorColddrink').checked) categories.push('Cold Drinks');
                 
                 const templateParams = {
                     from_name: document.getElementById('visitorName').value,
@@ -4276,7 +4213,7 @@
                     company: document.getElementById('visitorCompany').value,
                     industry: document.getElementById('visitorIndustry').value,
                     address: document.getElementById('visitorAddress').value,
-                    products: products.join(', '),
+                    categories: categories.join(', '),
                     visitor_count: document.getElementById('visitorCount').value,
                     visit_date: document.getElementById('visitorDate').value,
                     to_email: 'info@vibrantindia2026.com',
@@ -4320,9 +4257,8 @@
                         company: document.getElementById('exhibitorCompany').value,
                         website: document.getElementById('exhibitorWebsite').value,
                         country: document.getElementById('exhibitorCountry').value,
-                        year: document.getElementById('exhibitorYear').value,
                         description: document.getElementById('exhibitorDescription').value,
-                        products: selectedProducts.join(', '),
+                        categories: selectedCategories.join(', '),
                         package: document.getElementById('exhibitorPackage').value,
                         space: document.getElementById('exhibitorSpace').value + ' m²',
                         hall: document.getElementById('exhibitorHall').value,
