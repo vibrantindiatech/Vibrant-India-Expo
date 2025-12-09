@@ -70,6 +70,31 @@
         padding: 0;
         box-sizing: border-box;
       }
+      .newsletter-message {
+        display: none;
+        margin-top: 15px;
+        padding: 15px 25px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        border-radius: 10px;
+        text-align: center;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        animation: fadeSlide 0.5s ease forwards;
+      }
+
+      @keyframes fadeSlide {
+        0% {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
       html {
         scroll-behavior: smooth;
@@ -2281,21 +2306,33 @@
       }
 
       /* Mobile Header Logo Fix */
-      @media (max-width: 768px) {
+      /* Update the mobile menu breakpoint to hide text only on very small screens */
+      @media (max-width: 576px) {
         .logo-text {
-          display: none;
+          display: none; /* Hide only on very small screens */
         }
 
         .logo-icon {
-          font-size: 2.5rem;
+          font-size: 1.3rem;
           margin-right: 0;
         }
 
         .logo {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
         }
       }
 
+      /* Adjust for medium screens if needed */
+      @media (max-width: 768px) {
+        .logo-text {
+          font-size: 1.5rem; /* Smaller font for tablet */
+        }
+
+        .logo-icon {
+          font-size: 1.8rem;
+          margin-right: 8px;
+        }
+      }
       /* Responsive Styles */
       @media (max-width: 1200px) {
         h1 {
@@ -2480,11 +2517,14 @@
           margin-bottom: 15px;
         }
 
-       
+        .logo-text {
+          display: block; /* Change from 'none' to 'block' */
+          font-size: 1.5rem; /* Make it smaller for tablet */
+        }
 
         .logo-icon {
-          font-size: 2.5rem;
-          margin-right: 0;
+          font-size: 1.5rem; /* Adjusted size */
+          margin-right: 8px; /* Add some spacing */
         }
 
         .category-grid {
@@ -2506,9 +2546,7 @@
         h2 {
           font-size: 1.8rem;
         }
- .logo-text {
-          display: none;
-        }
+
         section {
           padding: 70px 0;
         }
@@ -2574,7 +2612,7 @@
     <div class="loading" id="loading">
       <div class="loading-logo">
         <i class="fas fa-ice-cream"></i>
-        <span>Vibrant India 2026</span>
+        <span>Vibrant India Expo</span>
       </div>
       <div class="loader"></div>
       <p style="color: white; margin-top: 20px">Loading Exhibition...</p>
@@ -2604,7 +2642,7 @@
       <div class="container header-container">
         <a href="#" class="logo" data-page="home">
           <i class="fas fa-ice-cream logo-icon"></i>
-          <span class="logo-text">Vibrant India 2026</span>
+          <span class="logo-text">Vibrant India Expo</span>
         </a>
         <div class="mobile-menu">
           <i class="fas fa-bars"></i>
@@ -2824,12 +2862,54 @@
             </div>
             <div class="about-image">
               <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
+                src="https://static.theprint.in/wp-content/uploads/2024/07/ANI-20240731100332.jpg"
                 alt="Exhibition Hall"
               />
             </div>
           </div>
         </div>
+
+        <style>
+          .about-content {
+            display: flex;
+            align-items: center; /* Align image and text vertically */
+            gap: 40px; /* Space between text and image */
+            flex-wrap: wrap; /* Wrap on smaller screens */
+            margin-top: 40px;
+          }
+
+          .about-text {
+            flex: 1 1 500px; /* Flexible text area */
+            min-width: 300px;
+          }
+
+          .about-image {
+            flex: 1 1 400px; /* Flexible image area */
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            height: auto; /* Let image height adjust */
+            max-height: 500px; /* Optional max height */
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+          }
+
+          .about-image:hover {
+            transform: perspective(1000px) rotateY(0);
+          }
+
+          .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Makes image fill container nicely */
+            display: block;
+            transition: var(--transition);
+          }
+
+          .about-image:hover img {
+            transform: scale(1.05);
+          }
+        </style>
       </section>
 
       <!-- Featured Products Section -->
@@ -3087,53 +3167,157 @@
 
       <section class="about">
         <div class="container">
+          <div class="section-title text-center">
+            <h2>About The Exhibition</h2>
+            <p>
+              Asia's biggest B2B exhibition for frozen dessert, beverage, and
+              confectionery products
+            </p>
+          </div>
           <div class="about-content">
             <div class="about-text">
-              <h2>Our Vision</h2>
+              <h3>ENGAGE WITH INFINITE GROWTH OPPORTUNITIES</h3>
               <p>
-                Vibrant India 2026 aims to create the most comprehensive B2B
-                platform for the frozen dessert, beverage, and confectionery
-                industry in Asia. We bring together manufacturers, suppliers,
-                distributors, and industry professionals to foster business
-                growth, innovation, and collaboration.
+                Vibrant India 2026 is one of Asia's biggest B2B exhibitions
+                showcasing the best known brands in Ice-Cream, Chocolate, and
+                Cold-drink sectors. This premier event brings together industry
+                leaders, innovators, and buyers from across the globe.
               </p>
-
-              <h3>Why Exhibit With Us?</h3>
               <p>
-                With India's rapidly growing economy and increasing disposable
-                income, the demand for premium frozen desserts, chocolates, and
-                beverages is at an all-time high. Our exhibition provides direct
-                access to this lucrative market through focused B2B
-                interactions.
+                With India being the world's largest population of 1.4 billion
+                and the 3rd largest economy (PPP) after the US & China, this
+                exhibition offers unparalleled access to one of the world's
+                fastest-growing markets.
               </p>
-
               <div class="stats">
                 <div class="stat-item">
-                  <span class="stat-number">15K+</span>
-                  <span class="stat-label">Visitors</span>
+                  <span class="stat-number">1.4B</span>
+                  <span class="stat-label">Population</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">50+</span>
-                  <span class="stat-label">Countries</span>
+                  <span class="stat-number">3rd</span>
+                  <span class="stat-label">Largest Economy</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">80%</span>
-                  <span class="stat-label">Decision Makers</span>
+                  <span class="stat-number">4</span>
+                  <span class="stat-label">Exhibition Days</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">₹200Cr+</span>
-                  <span class="stat-label">Business Generated</span>
+                  <span class="stat-number">500+</span>
+                  <span class="stat-label">Expected Exhibitors</span>
                 </div>
               </div>
             </div>
             <div class="about-image">
               <img
-                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
-                alt="About Vibrant India"
+                src="https://t4.ftcdn.net/jpg/07/41/27/65/360_F_741276556_eOnAhHdOzxMtqtlV3ckEU3qFZe6rI9ii.jpg"
+                alt="Exhibition Hall"
               />
             </div>
           </div>
         </div>
+
+        <style>
+          /* ABOUT SECTION */
+          .about {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+          }
+
+          .about .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+          }
+
+          .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+          }
+
+          .section-title p {
+            font-size: 18px;
+            color: #666;
+          }
+
+          /* About content layout */
+          .about-content {
+            display: flex;
+            align-items: stretch; /* Make both sides equal height */
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap; /* For responsiveness */
+          }
+
+          /* Left side text */
+          .about-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+          }
+
+          .about-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #555;
+          }
+
+          /* Stats styling */
+          .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+          }
+
+          .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+          }
+
+          .stat-number {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff00b7;
+          }
+
+          .stat-label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+          }
+
+          /* Right side image */
+          .about-image {
+            flex: 1;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            height: auto;
+          }
+
+          .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure image fills the container */
+            display: block;
+            transition: transform 0.5s ease;
+          }
+
+          .about-image:hover img {
+            transform: scale(1.05);
+          }
+        </style>
       </section>
 
       <section class="exhibitors-visitors">
@@ -4378,47 +4562,147 @@
                 </div>
               </div>
 
-              <!-- Navin Trivedi -->
+              <!-- naveen chaturvedi -->
+
               <div class="team-member">
                 <div class="member-icon">
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="member-details">
-                  <h4 class="member-name">Navin Trivedi</h4>
+                  <h4 class="member-name">Naveen Chaturvedi</h4>
                   <p class="member-role">Operations Head</p>
-                  <p class="member-phone">
-                    <i class="fas fa-phone"></i> +91 79768 78862
-                  </p>
+
                   <div class="member-actions">
-                    <button
-                      class="btn btn-outline"
-                      style="
-                        padding: 8px 20px;
-                        font-size: 0.9rem;
-                        background: #25d366;
-                        color: white;
-                        border: none;
-                      "
-                      onclick="sendWhatsApp('+917976878862')"
+                    <!-- WhatsApp Dropdown -->
+                    <div
+                      class="dropdown"
+                      style="display: inline-block; margin-right: 10px"
                     >
-                      <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
-                    <button
-                      class="btn btn-outline"
-                      style="
-                        padding: 8px 20px;
-                        font-size: 0.9rem;
-                        background: var(--primary);
-                        color: white;
-                        border: none;
-                      "
-                      onclick="makeCall('+917976878862')"
-                    >
-                      <i class="fas fa-phone"></i> Call Now
-                    </button>
+                      <button
+                        class="btn btn-outline"
+                        style="
+                          padding: 8px 20px;
+                          font-size: 0.9rem;
+                          background: #25d366;
+                          color: white;
+                          border: none;
+                        "
+                      >
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                      </button>
+                      <div
+                        class="dropdown-content"
+                        style="
+                          display: none;
+                          position: absolute;
+                          background: white;
+                          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                          z-index: 1;
+                        "
+                      >
+                        <a
+                          href="javascript:void(0)"
+                          onclick="sendWhatsApp('+917976878862')"
+                          style="
+                            display: block;
+                            padding: 10px;
+                            text-decoration: none;
+                            color: #333;
+                          "
+                        >
+                          +91 79768 78862
+                        </a>
+                        <a
+                          href="javascript:void(0)"
+                          onclick="sendWhatsApp('+917433930669')"
+                          style="
+                            display: block;
+                            padding: 10px;
+                            text-decoration: none;
+                            color: #333;
+                          "
+                        >
+                          +91 12345 67890
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Call Now Dropdown -->
+                    <div class="dropdown" style="display: inline-block">
+                      <button
+                        class="btn btn-outline"
+                        style="
+                          padding: 8px 20px;
+                          font-size: 0.9rem;
+                          background: var(--primary);
+                          color: white;
+                          border: none;
+                        "
+                      >
+                        <i class="fas fa-phone"></i> Call Now
+                      </button>
+                      <div
+                        class="dropdown-content"
+                        style="
+                          display: none;
+                          position: absolute;
+                          background: white;
+                          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                          z-index: 1;
+                        "
+                      >
+                        <a
+                          href="javascript:void(0)"
+                          onclick="makeCall('+917976878862')"
+                          style="
+                            display: block;
+                            padding: 10px;
+                            text-decoration: none;
+                            color: #333;
+                          "
+                        >
+                          +91 79768 78862
+                        </a>
+                        <a
+                          href="javascript:void(0)"
+                          onclick="makeCall('+917433930669')"
+                          style="
+                            display: block;
+                            padding: 10px;
+                            text-decoration: none;
+                            color: #333;
+                          "
+                        >
+                          +91 12345 67890
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <script>
+                // Simple dropdown toggle functionality
+                document.querySelectorAll(".dropdown").forEach((dropdown) => {
+                  const button = dropdown.querySelector("button");
+                  const content = dropdown.querySelector(".dropdown-content");
+
+                  button.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    content.style.display =
+                      content.style.display === "block" ? "none" : "block";
+                  });
+                });
+
+                // Close dropdowns when clicking elsewhere
+                document.addEventListener("click", () => {
+                  document
+                    .querySelectorAll(".dropdown-content")
+                    .forEach((content) => {
+                      content.style.display = "none";
+                    });
+                });
+              </script>
 
               <!-- Jyoti -->
               <div class="team-member">
@@ -4530,9 +4814,18 @@
 
                 <button
                   type="submit"
-                  class="submit-btn whatsapp-submit btn-outline"
+                  class="btn btn-outline submit-btn whatsapp-submit"
+                  style="
+                    padding: 14px 32px;
+                    font-size: 1rem;
+                    background: var(--gradient);
+                    color: #fff;
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                  "
                 >
-                  <i class="fab fa-whatsapp"></i> Send Message
+                  Send Message
                 </button>
               </form>
             </div>
@@ -4551,13 +4844,10 @@
                   Ahmedabad, Gujarat, India
                 </p>
                 <div class="venue-actions">
-                  <button class="venue-btn map-btn" onclick="openMap()">
+                  <!-- <button class="venue-btn map-btn" onclick="openMap()">
                     <i class="fas fa-map"></i> View on Map
-                  </button>
-                  <button
-                    class="venue-btn directions-btn"
-                    onclick="openDirections()"
-                  >
+                  </button> -->
+                  <button class="venue-btn map-btn" onclick="openDirections()">
                     <i class="fas fa-directions"></i> Get Directions
                   </button>
                 </div>
@@ -4954,13 +5244,8 @@
         }
 
         function openDirections() {
-          const address =
-            "Gujarat University Convention and Exhibition Centre, Ahmedabad, Gujarat, India";
-          const encodedAddress = encodeURIComponent(address);
-          window.open(
-            `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`,
-            "_blank"
-          );
+          const mapsLink = "https://maps.app.goo.gl/5oLZzYfBsmKz7udt5";
+          window.open(mapsLink, "_blank");
         }
 
         // Function to handle form submission
@@ -5022,7 +5307,7 @@
             </div>
             <div class="about-image">
               <img
-                src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
+                src="https://img.freepik.com/premium-photo/exhibition-blur-background-convention-hall-event-business-tech-expo-trade-fair-passenger-terminal-museum-gallery-lobby-with-blurry-interior-large-corridor_1028938-495883.jpg?semt=ais_hybrid&w=740&q=80"
                 alt="Gujarat University Convention Centre"
               />
             </div>
@@ -5031,10 +5316,10 @@
       </section>
 
       <!-- Map Section -->
-      <section class="map-section">
+      <!-- <section class="map-section">
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.575911256434!2d72.55231431539385!3d23.18876688487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a0c6a6b4c7f%3A0x6a3b3b3b3b3b3b3b!2sGujarat%20University%20Convention%20and%20Exhibition%20Centre!5e0!3m2!1sen!2sin!4v1647856789012!5m2!1sen!2sin"
+            src="https://maps.app.goo.gl/5oLZzYfBsmKz7udt5"
             width="100%"
             height="100%"
             style="border: 0"
@@ -5042,7 +5327,7 @@
             loading="lazy"
           ></iframe>
         </div>
-      </section>
+      </section> -->
     </div>
 
     <!-- Footer -->
@@ -5050,7 +5335,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-column">
-            <h3>Vibrant India 2026</h3>
+            <h3>Vibrant India Expo</h3>
             <p>
               Asia's premier B2B exhibition for frozen dessert, beverage, and
               confectionery products. Connect with industry leaders and explore
@@ -5134,7 +5419,8 @@
             <h3>Contact Info</h3>
             <ul class="footer-links">
               <li>
-                <a href="#"
+                <a
+                  href="https://www.google.com/maps/place/Gujarat+University+Convention+and+Exhibition+Centre/@23.0436972,72.5403111,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84bc5cdcbb73:0xd8b3441adb8eab65!8m2!3d23.0436972!4d72.5403111!16s%2Fg%2F1tnjgzlf?entry=ttu&g_ep=EgoyMDI1MTIwNy4wIKXMDSoASAFQAw%3D%3D"
                   ><i class="fas fa-map-marker-alt"></i> Gujarat University
                   Convention Centre, Ahmedabad</a
                 >
@@ -5155,8 +5441,8 @@
                 >
               </li>
               <li>
-                <a href="mailto:info@vibrantindia2026.com"
-                  ><i class="fas fa-envelope"></i> info@vibrantindia2026.com</a
+                <a href="mailto:info@vibrantindiafair.com"
+                  ><i class="fas fa-envelope"></i> info@vibrantindiafair.com</a
                 >
               </li>
             </ul>
@@ -5611,18 +5897,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
+      // ========== GLOBAL VARIABLES ==========
+      let typingAnimationStarted = false;
+      let animationsInitialized = false;
+      let countdownInterval = null;
+
       // ========== ENHANCED MODAL FUNCTIONS ==========
       function openModal(modal) {
         if (modal) {
           modal.classList.add("active");
-          document.body.style.overflow = "hidden"; // Prevent background scrolling
+          document.body.style.overflow = "hidden";
         }
       }
 
       function closeModal(modal) {
         if (modal) {
           modal.classList.remove("active");
-          document.body.style.overflow = "auto"; // Re-enable scrolling
+          document.body.style.overflow = "auto";
         }
       }
 
@@ -5631,35 +5922,7 @@
         emailjs.init("8Tt0u3rqjwpEgcYhV");
       })();
 
-      // Initialize EmailJS
-      (function () {
-        emailjs.init("Xy0PDh2q0TOTBm6Zj");
-      })();
-
-      document
-        .getElementById("newsletterForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const userEmail = this.querySelector("input").value;
-
-          emailjs
-            .send("service_z5kmbe6", "template_mwbi55k", {
-              user_email: userEmail,
-              // Add any variables defined in your template
-              subject: "Welcome to Vibrant India 2026! 🎉",
-              message: "Thank you for subscribing! Stay tuned for updates 🚀",
-            })
-            .then(() => {
-              alert("Success! A welcome email has been sent 🎉");
-              this.reset();
-            })
-            .catch(() => {
-              alert("Oops! Something went wrong. Please try again.");
-            });
-        });
-
-      // ========== PAGE NAVIGATION ==========
+      // ========== PAGE NAVIGATION ENHANCED ==========
       document.querySelectorAll("[data-page]").forEach((link) => {
         link.addEventListener("click", function (e) {
           e.preventDefault();
@@ -5694,90 +5957,109 @@
             if (nav && nav.classList.contains("active")) {
               nav.classList.remove("active");
             }
+
+            // Initialize animations if on home page
+            if (target === "home" && !animationsInitialized) {
+              setTimeout(() => {
+                initHomePageAnimations();
+              }, 100);
+            } else if (target === "home") {
+              // If already initialized, restart typing effect
+              setTimeout(() => {
+                initTypingEffect();
+              }, 300);
+            }
+
+            // Start/stop countdown based on page
+            if (target === "home") {
+              startCountdown();
+            } else {
+              stopCountdown();
+            }
           }
         });
       });
 
-      // ========== INITIALIZE LIBRARIES ==========
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-      });
-
-      // Initialize Owl Carousel
-      $(document).ready(function () {
-        const testimonialSlider = $(".testimonial-slider");
-
-        if (testimonialSlider.length) {
-          testimonialSlider.owlCarousel({
-            items: 1,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            nav: false,
-            dots: true,
-            responsive: {
-              0: { items: 1 },
-              768: { items: 1 },
-              992: { items: 1 },
-            },
-          });
-
-          // Custom navigation
-          $(".testimonial-next").click(function () {
-            testimonialSlider.trigger("next.owl.carousel");
-          });
-
-          $(".testimonial-prev").click(function () {
-            testimonialSlider.trigger("prev.owl.carousel");
-          });
+      // ========== HOME PAGE ANIMATIONS ==========
+      function initHomePageAnimations() {
+        if (!animationsInitialized) {
+          createParticles();
+          createSnowflakes();
+          animationsInitialized = true;
         }
-      });
 
-      // Initialize Lightbox
-      if (typeof lightbox !== "undefined") {
-        lightbox.option({
-          resizeDuration: 200,
-          wrapAround: true,
-          albumLabel: "Image %1 of %2",
-          disableScrolling: true,
-          fadeDuration: 300,
-          imageFadeDuration: 300,
-        });
+        initTypingEffect();
+        startCountdown();
+
+        // Restart floating effect for date card
+        const dateCard = document.querySelector(".highlight-card");
+        if (dateCard) {
+          dateCard.style.animation = "none";
+          dateCard.offsetHeight; // Trigger reflow
+          dateCard.style.animation = "float 3s ease-in-out infinite";
+        }
       }
 
-      // ========== ENHANCED COUNTDOWN & ANIMATIONS ==========
+      // ========== TYPING EFFECT (FIXED) ==========
+      // ========== SIMPLE TYPING EFFECT FOR TITLE ONLY ==========
       function initTypingEffect() {
         const heroTitle = document.querySelector(".hero h1");
-        if (heroTitle) {
+
+        if (heroTitle && !typingAnimationStarted) {
+          typingAnimationStarted = true;
           const originalText = heroTitle.textContent;
           heroTitle.textContent = "";
+
+          // Add typing cursor
+          heroTitle.classList.add("typing-cursor");
+
+          // Calculate typing speed for 1.5 seconds total
+          const totalTime = 1500; // 1.5 seconds in milliseconds
+          const typingSpeed = totalTime / originalText.length; // Speed per character
 
           let i = 0;
           function typeWriter() {
             if (i < originalText.length) {
               heroTitle.textContent += originalText.charAt(i);
               i++;
-              setTimeout(typeWriter, 50);
+
+              // Random slight variation in speed for natural feel
+              const variedSpeed = typingSpeed + (Math.random() * 30 - 15);
+              setTimeout(typeWriter, variedSpeed);
+            } else {
+              // Remove cursor when done
+              setTimeout(() => {
+                heroTitle.classList.remove("typing-cursor");
+              }, 300);
             }
           }
+
+          // Start typing after a brief pause
           setTimeout(typeWriter, 500);
         }
       }
 
-      // Add floating effect to date card
-      const dateCard = document.querySelector(".highlight-card");
-      if (dateCard) {
-        setInterval(() => {
-          dateCard.style.transform = `translateY(${
-            Math.sin(Date.now() / 2000) * 5
-          }px)`;
-        }, 50);
+      // ========== COUNTDOWN TIMER (ENHANCED) ==========
+      function startCountdown() {
+        // Clear any existing interval
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+        }
+
+        // Update immediately first
+        updateCountdown();
+
+        // Then set interval
+        countdownInterval = setInterval(updateCountdown, 1000);
       }
 
-      // Enhanced Countdown Timer Function
+      function stopCountdown() {
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+      }
+
       function updateCountdown() {
         const targetDate = new Date("July 17, 2026 09:00:00").getTime();
         const now = new Date().getTime();
@@ -5832,10 +6114,13 @@
         );
       }
 
-      // Create particles
+      // ========== CREATE PARTICLES ==========
       function createParticles() {
         const particlesContainer = document.getElementById("particles");
         if (!particlesContainer) return;
+
+        // Clear existing particles
+        particlesContainer.innerHTML = "";
 
         for (let i = 0; i < 30; i++) {
           const particle = document.createElement("div");
@@ -5851,10 +6136,13 @@
         }
       }
 
-      // Create snowflakes
+      // ========== CREATE SNOWFLAKES ==========
       function createSnowflakes() {
         const snowContainer = document.getElementById("snowflakes");
         if (!snowContainer) return;
+
+        // Clear existing snowflakes
+        snowContainer.innerHTML = "";
 
         for (let i = 0; i < 50; i++) {
           const snowflake = document.createElement("div");
@@ -5871,10 +6159,13 @@
         }
       }
 
-      // Create confetti
+      // ========== CREATE CONFETTI ==========
       function createConfetti() {
         const confettiContainer = document.getElementById("confetti");
         if (!confettiContainer) return;
+
+        // Clear existing confetti
+        confettiContainer.innerHTML = "";
 
         const colors = [
           "#e91e63",
@@ -5911,14 +6202,160 @@
         setTimeout(() => (confettiContainer.innerHTML = ""), 5000);
       }
 
-      // Initialize animations
-      createParticles();
-      createSnowflakes();
-      initTypingEffect();
+      // ========== INITIALIZE ON PAGE LOAD ==========
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if home page is active on load
+        const homePage = document.getElementById("home-page");
+        if (homePage && homePage.classList.contains("active")) {
+          setTimeout(() => {
+            initHomePageAnimations();
+          }, 500);
+        }
 
-      // Update countdown every second
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
+        // Initialize libraries
+        AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 100,
+        });
+
+        // Initialize Owl Carousel
+        $(document).ready(function () {
+          const testimonialSlider = $(".testimonial-slider");
+
+          if (testimonialSlider.length) {
+            testimonialSlider.owlCarousel({
+              items: 1,
+              loop: true,
+              autoplay: true,
+              autoplayTimeout: 5000,
+              autoplayHoverPause: true,
+              nav: false,
+              dots: true,
+              responsive: {
+                0: { items: 1 },
+                768: { items: 1 },
+                992: { items: 1 },
+              },
+            });
+
+            // Custom navigation
+            $(".testimonial-next").click(function () {
+              testimonialSlider.trigger("next.owl.carousel");
+            });
+
+            $(".testimonial-prev").click(function () {
+              testimonialSlider.trigger("prev.owl.carousel");
+            });
+          }
+        });
+      });
+
+      // ========== NEWSLETTER FORM (FIXED) ==========
+      document
+        .getElementById("newsletterForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const userEmail = this.querySelector("input").value;
+          const btn = this.querySelector("button");
+          const msgBox = document.getElementById("newsletterMessage");
+
+          btn.disabled = true;
+          btn.textContent = "Sending...";
+          msgBox.style.display = "none";
+
+          const now = new Date();
+          const date = now.toLocaleDateString();
+          const time = now.toLocaleTimeString();
+
+          function getNameFromEmail(email) {
+            const namePart = email.split("@")[0];
+            return namePart
+              .split(/[._]/)
+              .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+              .join(" ");
+          }
+
+          const userName = getNameFromEmail(userEmail);
+
+          fetch("https://ipapi.co/country_name/")
+            .then((res) => res.text())
+            .then((country) => {
+              if (!country || country === "undefined") country = "Unknown";
+
+              emailjs.init("Xy0PDh2q0TOTBm6Zj");
+              return emailjs
+                .send("service_z5kmbe6", "template_mwbi55k", {
+                  user_email: userEmail,
+                  user_name: userName,
+                  country: country,
+                  date: date,
+                  time: time,
+                })
+                .then(() => {
+                  emailjs.init("Zw1qa_G17LVWwEtUP");
+                  return emailjs.send("service_b6zj9be", "template_eecyf6e", {
+                    name: userName,
+                    email: userEmail,
+                    country: country,
+                    phone: "Not Provided",
+                    date: date,
+                    time: time,
+                  });
+                });
+            })
+            .then(() => {
+              msgBox.textContent = "🎉 You're subscribed! Check your inbox 📩";
+              msgBox.style.display = "block";
+              msgBox.style.background =
+                "linear-gradient(90deg, #ff4ec7, #8b48ff)";
+              msgBox.style.padding = "20px 28px";
+              msgBox.style.borderRadius = "18px";
+              msgBox.style.fontSize = "17px";
+              msgBox.style.margin = "25px auto";
+              msgBox.style.boxShadow = "0 6px 18px rgba(0,0,0,0.22)";
+              this.reset();
+            })
+            .catch((err) => {
+              console.error(err);
+              msgBox.textContent = "⚠️ Something went wrong. Try again.";
+              msgBox.style.background =
+                "linear-gradient(90deg, #ff9d9d, #ff3b3b)";
+              msgBox.style.display = "block";
+            })
+            .finally(() => {
+              btn.disabled = false;
+              btn.textContent = "Subscribe";
+              setTimeout(() => {
+                msgBox.style.display = "none";
+              }, 4000);
+            });
+        });
+
+      // ========== ADD CSS ANIMATION FOR FLOATING EFFECT ==========
+      const style = document.createElement("style");
+      style.textContent = `
+          @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+          
+          .highlight-card {
+            animation: float 3s ease-in-out infinite;
+          }
+          
+          .changing {
+            animation: pulse 0.3s ease-in-out;
+          }
+          
+          @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+          }
+        `;
+      document.head.appendChild(style);
 
       // ========== MOBILE MENU ==========
       const mobileMenu = document.querySelector(".mobile-menu");
@@ -6391,7 +6828,7 @@
             company: document.getElementById("contactCompany").value,
             interest: document.getElementById("contactInterest").value,
             message: document.getElementById("contactMessage").value,
-            to_email: "info@vibrantindia2026.com",
+            to_email: "info@vibrantindiafair.com",
             subject: "New Contact Form Submission - Vibrant India 2026",
             time: new Date().toLocaleString("en-IN", {
               timeZone: "Asia/Kolkata",
