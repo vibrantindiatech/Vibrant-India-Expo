@@ -2679,61 +2679,254 @@
     <!-- Home Page -->
     <div class="page active" id="home-page">
       <!-- Hero Section with SINGLE DATE CARD -->
-      <section class="hero">
-        <!-- Animated Background Particles -->
-        <div class="particles" id="particles"></div>
+<section class="hero">
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
 
-        <!-- Snowflakes for cold theme -->
-        <div class="snowflakes" id="snowflakes"></div>
+    <!-- Snowflakes for cold theme -->
+    <div class="snowflakes" id="snowflakes"></div>
 
-        <!-- Confetti for celebration -->
-        <div class="confetti-container" id="confetti"></div>
+    <!-- Confetti for celebration -->
+    <div class="confetti-container" id="confetti"></div>
 
-        <div class="container">
-          <div class="hero-content">
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
             <h1>Vibrant India 2026</h1>
             <p class="hero-tag">🍦 Ice-Cream • 🍫 Chocolate • 🥤 Cold-Drink</p>
 
             <!-- SINGLE DATE CARD -->
             <div class="hero-highlights">
-              <div class="highlight-card">
-                <div class="highlight-dates">July 17-20, 2026</div>
-                <p>Gujarat University Convention and Exhibition Centre</p>
-                <p class="highlight-location">Ahmedabad, Gujarat, India</p>
-              </div>
+                <div class="highlight-card">
+                    <div class="highlight-dates">July 17-20, 2026</div>
+                    <p>Gujarat University Convention and Exhibition Centre</p>
+                    <p class="highlight-location">Ahmedabad, Gujarat, India</p>
+                </div>
             </div>
 
             <!-- COUNTDOWN TIMER -->
             <div class="countdown">
-              <div class="countdown-item">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">Days</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">Hours</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">Minutes</span>
-              </div>
-              <div class="countdown-item">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">Seconds</span>
-              </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
             </div>
 
             <div class="hero-btns">
-              <a href="#" class="btn pulse" id="homeExhibitBtn"
-                >Book Your Stall</a
-              >
-              <a href="#" class="btn btn-secondary" id="homeVisitBtn"
-                >Register as Visitor</a
-              >
+                <a href="#" class="btn pulse" id="homeExhibitBtn">Book Your Stall</a>
+                <a href="#" class="btn btn-secondary" id="homeVisitBtn">Register as Visitor</a>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
+<style>
+  /* ===== FLOATING IMAGES ONLY ===== */
+.floating-product {
+    position: absolute;
+    z-index: 2;
+    pointer-events: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transition: transform 0.5s ease;
+}
+
+.floating-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floating-product:hover .floating-img {
+    transform: scale(1.15);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+/* Left Side Images */
+.left-floating {
+    top: 15%;
+    left: 5%;
+    width: 180px;
+    height: 180px;
+    animation: float-left 8s ease-in-out infinite;
+}
+
+.left-center-floating {
+    top: 40%;
+    left: 8%;
+    width: 160px;
+    height: 160px;
+    animation: float-center 9s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.left-bottom-floating {
+    top: 70%;
+    left: 4%;
+    width: 150px;
+    height: 150px;
+    animation: float-bottom 7s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+/* Right Side Images */
+.right-floating {
+    top: 10%;
+    right: 5%;
+    width: 160px;
+    height: 160px;
+    animation: float-right 9s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.right-center-floating {
+    top: 45%;
+    right: 8%;
+    width: 180px;
+    height: 180px;
+    animation: float-center-right 8s ease-in-out infinite;
+}
+
+.right-bottom-floating {
+    top: 75%;
+    right: 4%;
+    width: 170px;
+    height: 170px;
+    animation: float-bottom-right 10s ease-in-out infinite;
+    animation-delay: 2.5s;
+}
+
+/* Floating Animations */
+@keyframes float-left {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    50% { 
+        transform: translate(10px, -20px) rotate(-5deg); 
+    }
+}
+
+@keyframes float-center {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    50% { 
+        transform: translate(-15px, -25px) rotate(3deg); 
+    }
+}
+
+@keyframes float-bottom {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    50% { 
+        transform: translate(5px, -15px) rotate(-2deg); 
+    }
+}
+
+@keyframes float-right {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    50% { 
+        transform: translate(-10px, -20px) rotate(5deg); 
+    }
+}
+
+@keyframes float-center-right {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    50% { 
+        transform: translate(15px, -25px) rotate(-3deg); 
+    }
+}
+
+@keyframes float-bottom-right {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    50% { 
+        transform: translate(-5px, -15px) rotate(2deg); 
+    }
+}
+
+/* Responsive adjustments for floating images */
+@media (max-width: 1200px) {
+    .left-floating,
+    .right-floating {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .left-center-floating,
+    .right-center-floating {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .left-bottom-floating,
+    .right-bottom-floating {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 992px) {
+    .floating-product {
+        display: none;
+    }
+}
+</style>
 
       <!-- Categories Section (Moved from Hero) -->
       <section class="categories-section">
@@ -2938,7 +3131,7 @@
             <div class="product-card" data-category="icecream">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  src="https://w0.peakpx.com/wallpaper/702/688/HD-wallpaper-ice-cream-background-beautiful-best-available-for-ice-cream.jpg"
                   alt="Ice Cream"
                 />
               </div>
@@ -2953,7 +3146,7 @@
             <div class="product-card" data-category="icecream">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80"
+                  src="https://static.vecteezy.com/system/resources/thumbnails/071/079/527/small/vanilla-ice-cream-scoops-in-pink-bowl-topped-with-sprinkles-photo.jpg"
                   alt="Vegan Ice Cream"
                 />
               </div>
@@ -2970,7 +3163,7 @@
             <div class="product-card" data-category="chocolate">
               <div class="product-image">
                 <img
-                  src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeIBizlHzqOtfgpriPO37by-WAdQ_q40B9haPiCy5QrWww12Lnja0IY7RW8DcR_HXjhDg1mOZwwnjxYvVHYCeCsu8_Mrl7t2A5ezvczsSBI0hdoqqy9lyQO0hQ9y3YRadO52vRuPQ?key=BbWiD_PxnwkIaYkFzv1QGiGG"
+                  src="https://media.istockphoto.com/id/168413702/photo/luxury-milk-and-dark-chocolate-truffles.jpg?s=612x612&w=0&k=20&c=zjUmD4DJcb2W5NqXKVhtRO_V1i3gW_Tlp1TY-Nu2YmA="
                   alt="Chocolate"
                 />
               </div>
@@ -2985,7 +3178,7 @@
             <div class="product-card" data-category="chocolate">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  src="https://images.stockcake.com/public/3/f/b/3fb8d22e-5c3a-4ede-b19e-a010865d27ae_large/chocolate-bar-levitating-stockcake.jpg"
                   alt="Cacao"
                 />
               </div>
@@ -3017,7 +3210,7 @@
             <div class="product-card" data-category="colddrink">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  src="https://t3.ftcdn.net/jpg/18/23/42/42/360_F_1823424200_NqNgSK3nseIUywoRhIYCloBKtpXsx8ba.jpg"
                   alt="Energy Drinks"
                 />
               </div>
@@ -3144,26 +3337,283 @@
 
     <!-- About Page -->
     <div class="page" id="about-page">
-      <section
-        class="hero"
-        style="
-          background: linear-gradient(
-              rgba(26, 26, 46, 0.85),
-              rgba(26, 26, 46, 0.9)
-            ),
-            url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-          background-size: cover;
-          background-position: center;
-          padding: 150px 0 80px;
-        "
-      >
-        <div class="container">
-          <div class="hero-content">
+  <section
+    class="hero"
+    style="
+        background: linear-gradient(
+            rgba(26, 26, 46, 0.85),
+            rgba(26, 26, 46, 0.9)
+        ),
+        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 150px 0 80px;
+    "
+>
+   
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
             <h1>About Vibrant India 2026</h1>
             <p>Discover Asia's Premier Frozen Dessert & Beverage Exhibition</p>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
+<style>
+  /* ===== FLOATING IMAGES FOR ABOUT PAGE ===== */
+.floating-product {
+    position: absolute;
+    z-index: 2;
+    pointer-events: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    transition: transform 0.5s ease;
+}
+
+.floating-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floating-product:hover .floating-img {
+    transform: scale(1.15);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+}
+
+/* Left Side Images - About Page */
+.left-floating {
+    top: 20%;
+    left: 5%;
+    width: 160px;
+    height: 160px;
+    animation: float-left-about 8s ease-in-out infinite;
+}
+
+.left-center-floating {
+    top: 45%;
+    left: 8%;
+    width: 140px;
+    height: 140px;
+    animation: float-center-about 9s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.left-bottom-floating {
+    top: 70%;
+    left: 4%;
+    width: 130px;
+    height: 130px;
+    animation: float-bottom-about 7s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+/* Right Side Images - About Page */
+.right-floating {
+    top: 15%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    animation: float-right-about 9s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.right-center-floating {
+    top: 50%;
+    right: 8%;
+    width: 160px;
+    height: 160px;
+    animation: float-center-right-about 8s ease-in-out infinite;
+}
+
+.right-bottom-floating {
+    top: 75%;
+    right: 4%;
+    width: 150px;
+    height: 150px;
+    animation: float-bottom-right-about 10s ease-in-out infinite;
+    animation-delay: 2.5s;
+}
+
+/* About Page Specific Animations */
+@keyframes float-left-about {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    33% { 
+        transform: translate(15px, -25px) rotate(-3deg); 
+    }
+    66% { 
+        transform: translate(-5px, -15px) rotate(2deg); 
+    }
+}
+
+@keyframes float-center-about {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    33% { 
+        transform: translate(-10px, -20px) rotate(2deg); 
+    }
+    66% { 
+        transform: translate(8px, -30px) rotate(-1deg); 
+    }
+}
+
+@keyframes float-bottom-about {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    33% { 
+        transform: translate(5px, -25px) rotate(-1deg); 
+    }
+    66% { 
+        transform: translate(-12px, -18px) rotate(3deg); 
+    }
+}
+
+@keyframes float-right-about {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    33% { 
+        transform: translate(-15px, -25px) rotate(3deg); 
+    }
+    66% { 
+        transform: translate(5px, -15px) rotate(-2deg); 
+    }
+}
+
+@keyframes float-center-right-about {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    33% { 
+        transform: translate(10px, -20px) rotate(-2deg); 
+    }
+    66% { 
+        transform: translate(-8px, -30px) rotate(1deg); 
+    }
+}
+
+@keyframes float-bottom-right-about {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    33% { 
+        transform: translate(-5px, -25px) rotate(1deg); 
+    }
+    66% { 
+        transform: translate(12px, -18px) rotate(-3deg); 
+    }
+}
+
+/* Responsive adjustments for about page */
+@media (max-width: 1200px) {
+    .left-floating,
+    .right-floating {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .left-center-floating,
+    .right-center-floating {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .left-bottom-floating,
+    .right-bottom-floating {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media (max-width: 992px) {
+    .left-floating,
+    .right-floating {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .left-center-floating,
+    .right-center-floating {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .left-bottom-floating,
+    .right-bottom-floating {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-product {
+        display: none;
+    }
+}
+
+/* For very large screens */
+@media (min-width: 1600px) {
+    .left-floating,
+    .right-floating {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .left-center-floating,
+    .right-center-floating {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .left-bottom-floating,
+    .right-bottom-floating {
+        width: 170px;
+        height: 170px;
+    }
+}
+</style>
 
       <section class="about">
         <div class="container">
@@ -3558,28 +4008,66 @@
 
     <!-- Exhibitors Page -->
     <div class="page" id="exhibitors-page">
-      <section
-        class="hero"
-        style="
-          background: linear-gradient(
-              rgba(26, 26, 46, 0.85),
-              rgba(26, 26, 46, 0.9)
-            ),
-            url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-          background-size: cover;
-          background-position: center;
-          padding: 150px 0 80px;
-        "
-      >
-        <div class="container">
-          <div class="hero-content">
+    <section
+    class="hero"
+    style="
+        background: linear-gradient(
+            rgba(26, 26, 46, 0.85),
+            rgba(26, 26, 46, 0.9)
+        ),
+        url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 150px 0 80px;
+    "
+>
+  
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    <div class="container">
+        <div class="hero-content">
             <h1>Exhibitor Information</h1>
             <p>
-              Showcase your products to industry leaders and decision makers
+                Showcase your products to industry leaders and decision makers
             </p>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 
       <section class="exhibitors-visitors">
         <div class="container">
@@ -3699,26 +4187,65 @@
 
     <!-- Visitors Page -->
     <div class="page" id="visitors-page">
-      <section
-        class="hero"
-        style="
-          background: linear-gradient(
-              rgba(26, 26, 46, 0.85),
-              rgba(26, 26, 46, 0.9)
-            ),
-            url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-          background-size: cover;
-          background-position: center;
-          padding: 150px 0 80px;
-        "
-      >
-        <div class="container">
-          <div class="hero-content">
+     <section
+    class="hero"
+    style="
+        background: linear-gradient(
+            rgba(26, 26, 46, 0.85),
+            rgba(26, 26, 46, 0.9)
+        ),
+        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 150px 0 80px;
+    "
+>
+  
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
             <h1>Visitor Information</h1>
             <p>Source the best products and connect with leading suppliers</p>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 
       <section class="exhibitors-visitors">
         <div class="container">
@@ -3869,6 +4396,44 @@
           padding: 150px 0 80px;
         "
       >
+      
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
         <div class="container">
           <div class="hero-content">
             <h1>Product Categories</h1>
@@ -3902,7 +4467,7 @@
             <div class="product-card" data-category="icecream">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  src="https://w0.peakpx.com/wallpaper/702/688/HD-wallpaper-ice-cream-background-beautiful-best-available-for-ice-cream.jpg"
                   alt="Ice Cream"
                 />
               </div>
@@ -3917,7 +4482,7 @@
             <div class="product-card" data-category="icecream">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80"
+                  src="https://static.vecteezy.com/system/resources/thumbnails/071/079/527/small/vanilla-ice-cream-scoops-in-pink-bowl-topped-with-sprinkles-photo.jpg"
                   alt="Vegan Ice Cream"
                 />
               </div>
@@ -3934,7 +4499,7 @@
             <div class="product-card" data-category="chocolate">
               <div class="product-image">
                 <img
-                  src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeIBizlHzqOtfgpriPO37by-WAdQ_q40B9haPiCy5QrWww12Lnja0IY7RW8DcR_HXjhDg1mOZwwnjxYvVHYCeCsu8_Mrl7t2A5ezvczsSBI0hdoqqy9lyQO0hQ9y3YRadO52vRuPQ?key=BbWiD_PxnwkIaYkFzv1QGiGG"
+                  src="https://media.istockphoto.com/id/168413702/photo/luxury-milk-and-dark-chocolate-truffles.jpg?s=612x612&w=0&k=20&c=zjUmD4DJcb2W5NqXKVhtRO_V1i3gW_Tlp1TY-Nu2YmA="
                   alt="Chocolate"
                 />
               </div>
@@ -3949,7 +4514,7 @@
             <div class="product-card" data-category="chocolate">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  src="https://images.stockcake.com/public/3/f/b/3fb8d22e-5c3a-4ede-b19e-a010865d27ae_large/chocolate-bar-levitating-stockcake.jpg"
                   alt="Cacao"
                 />
               </div>
@@ -3981,7 +4546,7 @@
             <div class="product-card" data-category="colddrink">
               <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                  src="https://t3.ftcdn.net/jpg/18/23/42/42/360_F_1823424200_NqNgSK3nseIUywoRhIYCloBKtpXsx8ba.jpg"
                   alt="Energy Drinks"
                 />
               </div>
@@ -4045,6 +4610,44 @@
           padding: 150px 0 80px;
         "
       >
+      
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
         <div class="container">
           <div class="hero-content">
             <h1>Pricing & Packages</h1>
@@ -4156,6 +4759,44 @@
           padding: 150px 0 80px;
         "
       >
+      
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
         <div class="container">
           <div class="hero-content">
             <h1>Exhibition Gallery</h1>
@@ -4173,13 +4814,13 @@
           <div class="gallery-grid">
             <!-- Premium Ice Cream -->
             <a
-              href="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
+              href="https://w0.peakpx.com/wallpaper/702/688/HD-wallpaper-ice-cream-background-beautiful-best-available-for-ice-cream.jpg"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Premium Ice Cream - Vibrant India 2024"
             >
               <img
-                src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                src="https://w0.peakpx.com/wallpaper/702/688/HD-wallpaper-ice-cream-background-beautiful-best-available-for-ice-cream.jpg"
                 alt="Ice Cream"
               />
               <div class="gallery-overlay">
@@ -4190,13 +4831,13 @@
 
             <!-- Vegan Ice Cream -->
             <a
-              href="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+              href="https://static.vecteezy.com/system/resources/thumbnails/071/079/527/small/vanilla-ice-cream-scoops-in-pink-bowl-topped-with-sprinkles-photo.jpg"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Vegan Ice Cream - Dairy-free Indulgence"
             >
               <img
-                src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80"
+                src="https://static.vecteezy.com/system/resources/thumbnails/071/079/527/small/vanilla-ice-cream-scoops-in-pink-bowl-topped-with-sprinkles-photo.jpg"
                 alt="Vegan Ice Cream"
               />
               <div class="gallery-overlay">
@@ -4207,13 +4848,13 @@
 
             <!-- Artisan Chocolate -->
             <a
-              href="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+              href="https://media.istockphoto.com/id/168413702/photo/luxury-milk-and-dark-chocolate-truffles.jpg?s=612x612&w=0&k=20&c=zjUmD4DJcb2W5NqXKVhtRO_V1i3gW_Tlp1TY-Nu2YmA="
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Artisan Chocolate - Crafted Perfection"
             >
               <img
-                src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeIBizlHzqOtfgpriPO37by-WAdQ_q40B9haPiCy5QrWww12Lnja0IY7RW8DcR_HXjhDg1mOZwwnjxYvVHYCeCsu8_Mrl7t2A5ezvczsSBI0hdoqqy9lyQO0hQ9y3YRadO52vRuPQ?key=BbWiD_PxnwkIaYkFzv1QGiGG"
+                src="https://media.istockphoto.com/id/168413702/photo/luxury-milk-and-dark-chocolate-truffles.jpg?s=612x612&w=0&k=20&c=zjUmD4DJcb2W5NqXKVhtRO_V1i3gW_Tlp1TY-Nu2YmA="
                 alt="Artisan Chocolate"
               />
               <div class="gallery-overlay">
@@ -4224,13 +4865,13 @@
 
             <!-- Single-Origin Chocolate -->
             <a
-              href="https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+              href="https://images.stockcake.com/public/3/f/b/3fb8d22e-5c3a-4ede-b19e-a010865d27ae_large/chocolate-bar-levitating-stockcake.jpg"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Single-Origin Chocolate - Pure Cocoa Excellence"
             >
               <img
-                src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                src="https://images.stockcake.com/public/3/f/b/3fb8d22e-5c3a-4ede-b19e-a010865d27ae_large/chocolate-bar-levitating-stockcake.jpg"
                 alt="Cacao"
               />
               <div class="gallery-overlay">
@@ -4241,7 +4882,7 @@
 
             <!-- Functional Beverages -->
             <a
-              href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+              href="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Functional Beverages - Smart Hydration"
@@ -4258,13 +4899,13 @@
 
             <!-- Energy Drinks -->
             <a
-              href="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=2112&q=80"
+              href="https://t3.ftcdn.net/jpg/18/23/42/42/360_F_1823424200_NqNgSK3nseIUywoRhIYCloBKtpXsx8ba.jpg"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Energy & Sports Drinks - Boost Your Performance"
             >
               <img
-                src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                src="https://t3.ftcdn.net/jpg/18/23/42/42/360_F_1823424200_NqNgSK3nseIUywoRhIYCloBKtpXsx8ba.jpg"
                 alt="Energy Drinks"
               />
               <div class="gallery-overlay">
@@ -4275,13 +4916,13 @@
 
             <!-- Ice Cream Machinery -->
             <a
-              href="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=2070&q=80"
+              href="https://img.freepik.com/free-photo/appetizing-ice-cream-waffle-cone-generative-ai_169016-28996.jpg?semt=ais_hybrid&w=740&q=80"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Ice Cream Machinery - Latest Technology"
             >
               <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/055/225/092/small/dubai-delights-luxurious-chocolate-photo.jpg"
+                src="https://img.freepik.com/free-photo/appetizing-ice-cream-waffle-cone-generative-ai_169016-28996.jpg?semt=ais_hybrid&w=740&q=80"
                 alt="Ice Cream Machinery"
               />
               <div class="gallery-overlay">
@@ -4292,13 +4933,13 @@
 
             <!-- Chocolate Art -->
             <a
-              href="https://images.unsplash.com/photo-1584270354949-a89d78e95f4f?auto=format&fit=crop&w=2070&q=80"
+              href="https://i.pinimg.com/736x/9b/7a/db/9b7adb05c91eb8bb34d1bed11c4dede4.jpg"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Chocolate Art - Artistic Excellence"
             >
               <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/069/905/595/small/three-scoops-of-butterscotch-ice-cream-with-toffee-bits-sit-on-a-bed-of-cream-photo.jpg"
+                src="https://i.pinimg.com/736x/9b/7a/db/9b7adb05c91eb8bb34d1bed11c4dede4.jpg"
                 alt="Chocolate Art"
               />
               <div class="gallery-overlay">
@@ -4309,69 +4950,18 @@
 
             <!-- Beverage Displays -->
             <a
-              href="https://w0.peakpx.com/wallpaper/24/635/HD-wallpaper-oranges-and-juice-glass-juice-fruits-oranges.jpg"
+              href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZtdOFHP8gPL4ep3rOOIvHxbGUkft7B5lWFQ&s"
               class="gallery-item"
               data-lightbox="gallery"
               data-title="Beverage Displays - Fresh Flavors"
             >
               <img
-                src="https://t4.ftcdn.net/jpg/17/75/80/63/360_F_1775806317_vYGKn9eUfoRUp80zeafDANqvJsIMjYWs.jpg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZtdOFHP8gPL4ep3rOOIvHxbGUkft7B5lWFQ&s"
                 alt="Beverage Displays"
               />
               <div class="gallery-overlay">
                 <h4>Beverage Displays</h4>
                 <p>Bright, refreshing fruit-based drinks</p>
-              </div>
-            </a>
-
-            <!-- Visitors Interaction -->
-            <a
-              href="https://w0.peakpx.com/wallpaper/702/688/HD-wallpaper-ice-cream-background-beautiful-best-available-for-ice-cream.jpg"
-              class="gallery-item"
-              data-lightbox="gallery"
-              data-title="Visitors Interaction - Event Excitement"
-            >
-              <img
-                src="https://foodwithfeeling.com/wp-content/uploads/2023/07/Creami-Chocolate-Ice-Cream-4.jpg"
-                alt="Visitors Interaction"
-              />
-              <div class="gallery-overlay">
-                <h4>Visitors Interaction</h4>
-                <p>Joyful experiences and tasting moments</p>
-              </div>
-            </a>
-
-            <!-- Packaged Foods & Drinks -->
-            <a
-              href="https://images.unsplash.com/photo-1571063705627-1b8de5e59c07?auto=format&fit=crop&w=2070&q=80"
-              class="gallery-item"
-              data-lightbox="gallery"
-              data-title="Packaged Foods & Beverages - Convenience Delights"
-            >
-              <img
-                src="https://media.istockphoto.com/id/1395736637/photo/spring-or-summer-cold-cocktail-raspberry-lemonade.jpg?s=612x612&w=0&k=20&c=Eim8oSm-ycxAVssFPrOVwWpeo6iOaoZkkglKrmbKSk4="
-                alt="Packaged Foods"
-              />
-              <div class="gallery-overlay">
-                <h4>Packaged Foods & Beverages</h4>
-                <p>Quick, tasty, ready-to-enjoy products</p>
-              </div>
-            </a>
-
-            <!-- Cold Drink Stalls -->
-            <a
-              href="https://foodwithfeeling.com/wp-content/uploads/2023/07/Creami-Chocolate-Ice-Cream-4.jpg"
-              class="gallery-item"
-              data-lightbox="gallery"
-              data-title="Cold Drink Displays - Refreshment Zone"
-            >
-              <img
-                src="https://lepure.in/cdn/shop/articles/Le_Pure_Chocolatier_21-4-20258104_1920_x_647_1_1_55292fb6-2bf0-4fc1-8705-f62163eaec66.png?v=1750750004&width=686"
-                alt="Cold Drink Displays"
-              />
-              <div class="gallery-overlay">
-                <h4>Cold Drink Displays</h4>
-                <p>Cooling beverages to beat the heat</p>
               </div>
             </a>
           </div>
@@ -4454,6 +5044,44 @@
           padding: 150px 0 80px;
         "
       >
+      
+    <!-- Left Side Images -->
+    <div class="floating-product left-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product left-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+
+    <!-- Right Side Images -->
+    <div class="floating-product right-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
+             alt="Cold Drink" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-center-floating">
+        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
+             alt="Ice Cream" 
+             class="floating-img">
+    </div>
+    
+    <div class="floating-product right-bottom-floating">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
+             alt="Chocolate" 
+             class="floating-img">
+    </div>
         <div class="container">
           <div class="hero-content">
             <h1>Contact Us</h1>
@@ -5410,11 +6038,6 @@
               <li>
                 <a href="tel:+919924488938"
                   ><i class="fas fa-phone"></i> +91 99244 88938</a
-                >
-              </li>
-              <li>
-                <a href="tel:+919824031126"
-                  ><i class="fas fa-phone"></i> +91 98240 31126</a
                 >
               </li>
               <li>
