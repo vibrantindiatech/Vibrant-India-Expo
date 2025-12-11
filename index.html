@@ -2438,7 +2438,31 @@
           padding: 30px 20px;
         }
       }
+      @media (max-width: 1024px) {
+        .category-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
 
+        /* Center the 3rd box perfectly under the first two */
+        .category-item:nth-child(3) {
+          grid-column: 1 / -1; /* span across both columns */
+          justify-self: center; /* center horizontally */
+          width: 60%; /* make it slightly narrower (optional) */
+        }
+      }
+
+      /* 📱 Mobile: stack all */
+      @media (max-width: 600px) {
+        .category-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .category-item:nth-child(3) {
+          grid-column: auto;
+          justify-self: auto;
+          width: 100%;
+        }
+      }
       @media (max-width: 768px) {
         .mobile-menu {
           display: block;
@@ -2679,254 +2703,278 @@
     <!-- Home Page -->
     <div class="page active" id="home-page">
       <!-- Hero Section with SINGLE DATE CARD -->
-<section class="hero">
-    <!-- Animated Background Particles -->
-    <div class="particles" id="particles"></div>
+      <section class="hero">
+        <!-- Animated Background Particles -->
+        <div class="particles" id="particles"></div>
 
-    <!-- Snowflakes for cold theme -->
-    <div class="snowflakes" id="snowflakes"></div>
+        <!-- Snowflakes for cold theme -->
+        <div class="snowflakes" id="snowflakes"></div>
 
-    <!-- Confetti for celebration -->
-    <div class="confetti-container" id="confetti"></div>
+        <!-- Confetti for celebration -->
+        <div class="confetti-container" id="confetti"></div>
 
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img
+            src="./vitexpo/white chocolate 🍫 and fluffy hearts (1).jpeg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
+        <div class="floating-product left-center-floating">
+          <img
+            src="./vitexpo/download (8).jpeg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
 
-    <div class="container">
-        <div class="hero-content">
+        <div class="floating-product left-bottom-floating">
+          <img
+            src="./vitexpo/download (2).jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img
+            src="./vitexpo/download (1).jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img
+            src="./vitexpo/Cranberry Pineapple Fizz.jpeg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img
+            src="./vitexpo/download (4).jpeg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="container">
+          <div class="hero-content">
             <h1>Vibrant India 2026</h1>
             <p class="hero-tag">🍦 Ice-Cream • 🍫 Chocolate • 🥤 Cold-Drink</p>
 
             <!-- SINGLE DATE CARD -->
             <div class="hero-highlights">
-                <div class="highlight-card">
-                    <div class="highlight-dates">July 17-20, 2026</div>
-                    <p>Gujarat University Convention and Exhibition Centre</p>
-                    <p class="highlight-location">Ahmedabad, Gujarat, India</p>
-                </div>
+              <div class="highlight-card">
+                <div class="highlight-dates">July 17-20, 2026</div>
+                <p>Gujarat University Convention and Exhibition Centre</p>
+                <p class="highlight-location">Ahmedabad, Gujarat, India</p>
+              </div>
             </div>
 
             <!-- COUNTDOWN TIMER -->
             <div class="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Minutes</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-label">Seconds</span>
-                </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
             </div>
 
             <div class="hero-btns">
-                <a href="#" class="btn pulse" id="homeExhibitBtn">Book Your Stall</a>
-                <a href="#" class="btn btn-secondary" id="homeVisitBtn">Register as Visitor</a>
+              <a href="#" class="btn pulse" id="homeExhibitBtn"
+                >Book Your Stall</a
+              >
+              <a href="#" class="btn btn-secondary" id="homeVisitBtn"
+                >Register as Visitor</a
+              >
             </div>
+          </div>
         </div>
-    </div>
-</section>
-<style>
-  /* ===== FLOATING IMAGES ONLY ===== */
-.floating-product {
-    position: absolute;
-    z-index: 2;
-    pointer-events: auto;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
-    transition: transform 0.5s ease;
-}
+      </section>
+      <style>
+        /* ===== FLOATING IMAGES ONLY ===== */
+        .floating-product {
+          position: absolute;
+          z-index: 2;
+          pointer-events: auto;
+          filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+          transition: transform 0.5s ease;
+        }
 
-.floating-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .floating-img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
 
-.floating-product:hover .floating-img {
-    transform: scale(1.15);
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
-}
+        .floating-product:hover .floating-img {
+          transform: scale(1.15);
+          filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+        }
 
-/* Left Side Images */
-.left-floating {
-    top: 15%;
-    left: 5%;
-    width: 180px;
-    height: 180px;
-    animation: float-left 8s ease-in-out infinite;
-}
+        /* Left Side Images */
+        .left-floating {
+          top: 15%;
+          left: 5%;
+          width: 180px;
+          height: 180px;
+          animation: float-left 8s ease-in-out infinite;
+        }
 
-.left-center-floating {
-    top: 40%;
-    left: 8%;
-    width: 160px;
-    height: 160px;
-    animation: float-center 9s ease-in-out infinite;
-    animation-delay: 1s;
-}
+        .left-center-floating {
+          top: 40%;
+          left: 8%;
+          width: 160px;
+          height: 160px;
+          animation: float-center 9s ease-in-out infinite;
+          animation-delay: 1s;
+        }
 
-.left-bottom-floating {
-    top: 70%;
-    left: 4%;
-    width: 150px;
-    height: 150px;
-    animation: float-bottom 7s ease-in-out infinite;
-    animation-delay: 2s;
-}
+        .left-bottom-floating {
+          top: 70%;
+          left: 4%;
+          width: 150px;
+          height: 150px;
+          animation: float-bottom 7s ease-in-out infinite;
+          animation-delay: 2s;
+        }
 
-/* Right Side Images */
-.right-floating {
-    top: 10%;
-    right: 5%;
-    width: 160px;
-    height: 160px;
-    animation: float-right 9s ease-in-out infinite;
-    animation-delay: 1.5s;
-}
+        /* Right Side Images */
+        .right-floating {
+          top: 10%;
+          right: 5%;
+          width: 160px;
+          height: 160px;
+          animation: float-right 9s ease-in-out infinite;
+          animation-delay: 1.5s;
+        }
 
-.right-center-floating {
-    top: 45%;
-    right: 8%;
-    width: 180px;
-    height: 180px;
-    animation: float-center-right 8s ease-in-out infinite;
-}
+        .right-center-floating {
+          top: 45%;
+          right: 8%;
+          width: 180px;
+          height: 180px;
+          animation: float-center-right 8s ease-in-out infinite;
+        }
 
-.right-bottom-floating {
-    top: 75%;
-    right: 4%;
-    width: 170px;
-    height: 170px;
-    animation: float-bottom-right 10s ease-in-out infinite;
-    animation-delay: 2.5s;
-}
+        .right-bottom-floating {
+          top: 75%;
+          right: 30%;
+          width: 200px;
+          height: 200px;
+          animation: float-bottom-right 10s ease-in-out infinite;
+          animation-delay: 2.5s;
+        }
+        .right-bottom-floating img {
+          object-fit: cover;
+        }
+        /* Floating Animations */
+        @keyframes float-left {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(10px, -20px) rotate(-5deg);
+          }
+        }
 
-/* Floating Animations */
-@keyframes float-left {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    50% { 
-        transform: translate(10px, -20px) rotate(-5deg); 
-    }
-}
+        @keyframes float-center {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-15px, -25px) rotate(3deg);
+          }
+        }
 
-@keyframes float-center {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    50% { 
-        transform: translate(-15px, -25px) rotate(3deg); 
-    }
-}
+        @keyframes float-bottom {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(5px, -15px) rotate(-2deg);
+          }
+        }
 
-@keyframes float-bottom {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    50% { 
-        transform: translate(5px, -15px) rotate(-2deg); 
-    }
-}
+        @keyframes float-right {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-10px, -20px) rotate(5deg);
+          }
+        }
 
-@keyframes float-right {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    50% { 
-        transform: translate(-10px, -20px) rotate(5deg); 
-    }
-}
+        @keyframes float-center-right {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(15px, -25px) rotate(-3deg);
+          }
+        }
 
-@keyframes float-center-right {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    50% { 
-        transform: translate(15px, -25px) rotate(-3deg); 
-    }
-}
+        @keyframes float-bottom-right {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-5px, -15px) rotate(2deg);
+          }
+        }
 
-@keyframes float-bottom-right {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    50% { 
-        transform: translate(-5px, -15px) rotate(2deg); 
-    }
-}
+        /* Responsive adjustments for floating images */
+        @media (max-width: 1200px) {
+          .left-floating,
+          .right-floating {
+            width: 150px;
+            height: 150px;
+          }
 
-/* Responsive adjustments for floating images */
-@media (max-width: 1200px) {
-    .left-floating,
-    .right-floating {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .left-center-floating,
-    .right-center-floating {
-        width: 140px;
-        height: 140px;
-    }
-    
-    .left-bottom-floating,
-    .right-bottom-floating {
-        width: 130px;
-        height: 130px;
-    }
-}
+          .left-center-floating,
+          .right-center-floating {
+            width: 140px;
+            height: 140px;
+          }
 
-@media (max-width: 992px) {
-    .floating-product {
-        display: none;
-    }
-}
-</style>
+          .left-bottom-floating,
+          .right-bottom-floating {
+            width: 130px;
+            height: 130px;
+          }
+        }
+
+        @media (max-width: 992px) {
+          .floating-product {
+            display: none;
+          }
+        }
+      </style>
 
       <!-- Categories Section (Moved from Hero) -->
       <section class="categories-section">
@@ -3337,283 +3385,300 @@
 
     <!-- About Page -->
     <div class="page" id="about-page">
-  <section
-    class="hero"
-    style="
-        background: linear-gradient(
-            rgba(26, 26, 46, 0.85),
-            rgba(26, 26, 46, 0.9)
-        ),
-        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-        background-size: cover;
-        background-position: center;
-        padding: 150px 0 80px;
-    "
->
-   
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+      <section
+        class="hero"
+        style="
+          background: linear-gradient(
+              rgba(26, 26, 46, 0.85),
+              rgba(26, 26, 46, 0.9)
+            ),
+            url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+          background-size: cover;
+          background-position: center;
+          padding: 150px 0 80px;
+        "
+      >
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img
+            src="./vitexpo/download (9).jpeg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
+        <div class="floating-product left-center-floating">
+          <img
+            src="./vitexpo/Choco Hearts  Candles.jpeg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
 
-    <div class="container">
-        <div class="hero-content">
+        <div class="floating-product left-bottom-floating">
+          <img
+            src="./vitexpo/pink.jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img
+            src="./vitexpo/Richness Found in Dark Chocolate.jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img
+            src="./vitexpo/download (10).jpeg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img
+            src="https://i.pinimg.com/736x/37/89/12/378912926730670ac630ba7a3a387147.jpg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="container">
+          <div class="hero-content">
             <h1>About Vibrant India 2026</h1>
             <p>Discover Asia's Premier Frozen Dessert & Beverage Exhibition</p>
+          </div>
         </div>
-    </div>
-</section>
-<style>
-  /* ===== FLOATING IMAGES FOR ABOUT PAGE ===== */
-.floating-product {
-    position: absolute;
-    z-index: 2;
-    pointer-events: auto;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-    transition: transform 0.5s ease;
-}
+      </section>
+      <style>
+        /* ===== FLOATING IMAGES FOR ABOUT PAGE ===== */
+        .floating-product {
+          position: absolute;
+          z-index: 2;
+          pointer-events: auto;
+          filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+          transition: transform 0.5s ease;
+        }
 
-.floating-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .floating-img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
 
-.floating-product:hover .floating-img {
-    transform: scale(1.15);
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
-}
+        .floating-product:hover .floating-img {
+          transform: scale(1.15);
+          filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+        }
 
-/* Left Side Images - About Page */
-.left-floating {
-    top: 20%;
-    left: 5%;
-    width: 160px;
-    height: 160px;
-    animation: float-left-about 8s ease-in-out infinite;
-}
+        /* Left Side Images - About Page */
+        .left-floating {
+          top: 20%;
+          left: 5%;
+          width: 160px;
+          height: 160px;
+          animation: float-left-about 8s ease-in-out infinite;
+        }
 
-.left-center-floating {
-    top: 45%;
-    left: 8%;
-    width: 140px;
-    height: 140px;
-    animation: float-center-about 9s ease-in-out infinite;
-    animation-delay: 1s;
-}
+        .left-center-floating {
+          top: 45%;
+          left: 8%;
+          width: 140px;
+          height: 140px;
+          animation: float-center-about 9s ease-in-out infinite;
+          animation-delay: 1s;
+        }
 
-.left-bottom-floating {
-    top: 70%;
-    left: 4%;
-    width: 130px;
-    height: 130px;
-    animation: float-bottom-about 7s ease-in-out infinite;
-    animation-delay: 2s;
-}
+        .left-bottom-floating {
+          top: 70%;
+          left: 4%;
+          width: 130px;
+          height: 130px;
+          animation: float-bottom-about 7s ease-in-out infinite;
+          animation-delay: 2s;
+        }
 
-/* Right Side Images - About Page */
-.right-floating {
-    top: 15%;
-    right: 5%;
-    width: 150px;
-    height: 150px;
-    animation: float-right-about 9s ease-in-out infinite;
-    animation-delay: 1.5s;
-}
+        /* Right Side Images - About Page */
+        .right-floating {
+          top: 20%;
+          right: 5%;
+          width: 150px;
+          height: 150px;
+          animation: float-right-about 9s ease-in-out infinite;
+          animation-delay: 1.5s;
+        }
 
-.right-center-floating {
-    top: 50%;
-    right: 8%;
-    width: 160px;
-    height: 160px;
-    animation: float-center-right-about 8s ease-in-out infinite;
-}
+        .right-center-floating {
+          top: 50%;
+          right: 8%;
+          width: 160px;
+          height: 160px;
+          animation: float-center-right-about 8s ease-in-out infinite;
+        }
 
-.right-bottom-floating {
-    top: 75%;
-    right: 4%;
-    width: 150px;
-    height: 150px;
-    animation: float-bottom-right-about 10s ease-in-out infinite;
-    animation-delay: 2.5s;
-}
+        .right-bottom-floating {
+          top: 75%;
+          right: 4%;
+          width: 150px;
+          height: 150px;
+          animation: float-bottom-right-about 10s ease-in-out infinite;
+          animation-delay: 2.5s;
+        }
 
-/* About Page Specific Animations */
-@keyframes float-left-about {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    33% { 
-        transform: translate(15px, -25px) rotate(-3deg); 
-    }
-    66% { 
-        transform: translate(-5px, -15px) rotate(2deg); 
-    }
-}
+        /* About Page Specific Animations */
+        @keyframes float-left-about {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          33% {
+            transform: translate(15px, -25px) rotate(-3deg);
+          }
+          66% {
+            transform: translate(-5px, -15px) rotate(2deg);
+          }
+        }
 
-@keyframes float-center-about {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    33% { 
-        transform: translate(-10px, -20px) rotate(2deg); 
-    }
-    66% { 
-        transform: translate(8px, -30px) rotate(-1deg); 
-    }
-}
+        @keyframes float-center-about {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          33% {
+            transform: translate(-10px, -20px) rotate(2deg);
+          }
+          66% {
+            transform: translate(8px, -30px) rotate(-1deg);
+          }
+        }
 
-@keyframes float-bottom-about {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    33% { 
-        transform: translate(5px, -25px) rotate(-1deg); 
-    }
-    66% { 
-        transform: translate(-12px, -18px) rotate(3deg); 
-    }
-}
+        @keyframes float-bottom-about {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          33% {
+            transform: translate(5px, -25px) rotate(-1deg);
+          }
+          66% {
+            transform: translate(-12px, -18px) rotate(3deg);
+          }
+        }
 
-@keyframes float-right-about {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    33% { 
-        transform: translate(-15px, -25px) rotate(3deg); 
-    }
-    66% { 
-        transform: translate(5px, -15px) rotate(-2deg); 
-    }
-}
+        @keyframes float-right-about {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          33% {
+            transform: translate(-15px, -25px) rotate(3deg);
+          }
+          66% {
+            transform: translate(5px, -15px) rotate(-2deg);
+          }
+        }
 
-@keyframes float-center-right-about {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    33% { 
-        transform: translate(10px, -20px) rotate(-2deg); 
-    }
-    66% { 
-        transform: translate(-8px, -30px) rotate(1deg); 
-    }
-}
+        @keyframes float-center-right-about {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          33% {
+            transform: translate(10px, -20px) rotate(-2deg);
+          }
+          66% {
+            transform: translate(-8px, -30px) rotate(1deg);
+          }
+        }
 
-@keyframes float-bottom-right-about {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-    }
-    33% { 
-        transform: translate(-5px, -25px) rotate(1deg); 
-    }
-    66% { 
-        transform: translate(12px, -18px) rotate(-3deg); 
-    }
-}
+        @keyframes float-bottom-right-about {
+          0%,
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          33% {
+            transform: translate(-5px, -25px) rotate(1deg);
+          }
+          66% {
+            transform: translate(12px, -18px) rotate(-3deg);
+          }
+        }
 
-/* Responsive adjustments for about page */
-@media (max-width: 1200px) {
-    .left-floating,
-    .right-floating {
-        width: 140px;
-        height: 140px;
-    }
-    
-    .left-center-floating,
-    .right-center-floating {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .left-bottom-floating,
-    .right-bottom-floating {
-        width: 110px;
-        height: 110px;
-    }
-}
+        /* Responsive adjustments for about page */
+        @media (max-width: 1200px) {
+          .left-floating,
+          .right-floating {
+            width: 140px;
+            height: 158px;
+          }
 
-@media (max-width: 992px) {
-    .left-floating,
-    .right-floating {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .left-center-floating,
-    .right-center-floating {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .left-bottom-floating,
-    .right-bottom-floating {
-        width: 90px;
-        height: 90px;
-    }
-}
+          .left-center-floating,
+          .right-center-floating {
+            width: 120px;
+            height: 158px;
+          }
 
-@media (max-width: 768px) {
-    .floating-product {
-        display: none;
-    }
-}
+          .left-bottom-floating,
+          .right-bottom-floating {
+            width: 110px;
+            height: 110px;
+          }
+        }
 
-/* For very large screens */
-@media (min-width: 1600px) {
-    .left-floating,
-    .right-floating {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .left-center-floating,
-    .right-center-floating {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .left-bottom-floating,
-    .right-bottom-floating {
-        width: 170px;
-        height: 170px;
-    }
-}
-</style>
+        @media (max-width: 992px) {
+          .left-floating,
+          .right-floating {
+            width: 120px;
+            height: 120px;
+          }
+
+          .left-center-floating,
+          .right-center-floating {
+            width: 100px;
+            height: 100px;
+          }
+
+          .left-bottom-floating,
+          .right-bottom-floating {
+            width: 90px;
+            height: 90px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .floating-product {
+            display: none;
+          }
+        }
+
+        /* For very large screens */
+        @media (min-width: 1600px) {
+          .left-floating,
+          .right-floating {
+            width: 200px;
+            height: 200px;
+          }
+
+          .left-center-floating,
+          .right-center-floating {
+            width: 180px;
+            height: 180px;
+          }
+
+          .left-bottom-floating,
+          .right-bottom-floating {
+            width: 170px;
+            height: 170px;
+          }
+        }
+      </style>
 
       <section class="about">
         <div class="container">
@@ -4008,66 +4073,78 @@
 
     <!-- Exhibitors Page -->
     <div class="page" id="exhibitors-page">
-    <section
-    class="hero"
-    style="
-        background: linear-gradient(
-            rgba(26, 26, 46, 0.85),
-            rgba(26, 26, 46, 0.9)
-        ),
-        url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-        background-size: cover;
-        background-position: center;
-        padding: 150px 0 80px;
-    "
->
-  
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+      <section
+        class="hero"
+        style="
+          background: linear-gradient(
+              rgba(26, 26, 46, 0.85),
+              rgba(26, 26, 46, 0.9)
+            ),
+            url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+          background-size: cover;
+          background-position: center;
+          padding: 150px 0 80px;
+        "
+      >
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img
+            src="./vitexpo/download (7).jpeg"
+            alt="Chocolate"
+            class="floating-img"
+            style="width: 150px"
+          />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    <div class="container">
-        <div class="hero-content">
+        <div class="floating-product left-center-floating">
+          <img
+            src="./vitexpo/Decadent Chocolate Treats_ Rich, Velvety Chocolate Bars with Raspberry Filling.jpeg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product left-bottom-floating">
+          <img
+            src="./vitexpo/choco.jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img
+            src="./vitexpo/Drink inspirado na Ariel (A Pequena Sereia).jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img
+            src="./vitexpo/purple chocolate bonbon.jpeg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img
+            src="./vitexpo/Rich Dark Chocolate Delight_ Indulge in the Decadence of Handcrafted Chocolate Treats.jpeg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
+        <div class="container">
+          <div class="hero-content">
             <h1>Exhibitor Information</h1>
             <p>
-                Showcase your products to industry leaders and decision makers
+              Showcase your products to industry leaders and decision makers
             </p>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
       <section class="exhibitors-visitors">
         <div class="container">
@@ -4187,65 +4264,76 @@
 
     <!-- Visitors Page -->
     <div class="page" id="visitors-page">
-     <section
-    class="hero"
-    style="
-        background: linear-gradient(
-            rgba(26, 26, 46, 0.85),
-            rgba(26, 26, 46, 0.9)
-        ),
-        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-        background-size: cover;
-        background-position: center;
-        padding: 150px 0 80px;
-    "
->
-  
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+      <section
+        class="hero"
+        style="
+          background: linear-gradient(
+              rgba(26, 26, 46, 0.85),
+              rgba(26, 26, 46, 0.9)
+            ),
+            url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+          background-size: cover;
+          background-position: center;
+          padding: 150px 0 80px;
+        "
+      >
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img
+            src="./vitexpo/white.jpeg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
+        <div class="floating-product left-center-floating">
+          <img
+            src="https://i.pinimg.com/736x/42/98/7c/42987c5d2742cb0dbfcb189340788203.jpg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
 
-    <div class="container">
-        <div class="hero-content">
+        <div class="floating-product left-bottom-floating">
+          <img
+            src="./vitexpo/download (12).jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img
+            src="./vitexpo/mixed-berry-yogurt-smoothie-recipe-4.jpg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img
+            src="./vitexpo/download (5).jpeg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img
+            src="./vitexpo/download (13).jpeg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="container">
+          <div class="hero-content">
             <h1>Visitor Information</h1>
             <p>Source the best products and connect with leading suppliers</p>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
       <section class="exhibitors-visitors">
         <div class="container">
@@ -4396,44 +4484,35 @@
           padding: 150px 0 80px;
         "
       >
-      
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img src="./vitexpo/d7.jpeg" alt="Chocolate" class="floating-img" />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
+        <div class="floating-product left-center-floating">
+          <img src="./vitexpo/d11.jpeg" alt="Ice Cream" class="floating-img" />
+        </div>
+
+        <div class="floating-product left-bottom-floating">
+          <img src="./vitexpo/4.jpeg" alt="Cold Drink" class="floating-img" />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img src="./vitexpo/8.jpeg" alt="Cold Drink" class="floating-img" />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img src="./vitexpo/9.jpeg" alt="Ice Cream" class="floating-img" />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img
+            src="./vitexpo/download (14).jpeg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
         <div class="container">
           <div class="hero-content">
             <h1>Product Categories</h1>
@@ -4610,44 +4689,55 @@
           padding: 150px 0 80px;
         "
       >
-      
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img
+            src="https://i.pinimg.com/1200x/09/c8/3c/09c83c5e504ec2c923c56b4a70656796.jpg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
+        <div class="floating-product left-center-floating">
+          <img
+            src="https://i.pinimg.com/736x/bc/8d/02/bc8d0242bca2cf23a518b9655612a263.jpg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product left-bottom-floating">
+          <img
+            src="https://i.pinimg.com/736x/ff/5e/0f/ff5e0f64f2cf44a7cc10348a8f2f0905.jpg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img
+            src="https://i.pinimg.com/736x/72/cf/20/72cf20858e023da142c35ca0c241e4f4.jpg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img
+            src="https://i.pinimg.com/736x/bc/e7/06/bce7066b68a7f0cc148437e918ece751.jpg"
+            alt="Ice Cream"
+            class="floating-img"
+          />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img
+            src="https://i.pinimg.com/736x/4b/31/88/4b318885ad541d0be6c6ebe010e9f16f.jpg"
+            alt="Chocolate"
+            class="floating-img"
+          />
+        </div>
         <div class="container">
           <div class="hero-content">
             <h1>Pricing & Packages</h1>
@@ -4759,44 +4849,35 @@
           padding: 150px 0 80px;
         "
       >
-      
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img src="./vitexpo/s12.jpeg" alt="Chocolate" class="floating-img" />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
+        <div class="floating-product left-center-floating">
+          <img src="./vitexpo/d10.jpeg" alt="Ice Cream" class="floating-img" />
+        </div>
+
+        <div class="floating-product left-bottom-floating">
+          <img
+            src="./vitexpo/Blueberry Milkshake Recipe _ Fresh, Creamy Berry Drink.jpeg"
+            alt="Cold Drink"
+            class="floating-img"
+          />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img src="./vitexpo/d19.jpeg" alt="Cold Drink" class="floating-img" />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img src="./vitexpo/7.jpeg" alt="Ice Cream" class="floating-img" />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img src="./vitexpo/6.jpeg" alt="Chocolate" class="floating-img" />
+        </div>
         <div class="container">
           <div class="hero-content">
             <h1>Exhibition Gallery</h1>
@@ -5044,44 +5125,31 @@
           padding: 150px 0 80px;
         "
       >
-      
-    <!-- Left Side Images -->
-    <div class="floating-product left-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product left-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
+        <!-- Left Side Images -->
+        <div class="floating-product left-floating">
+          <img src="./vitexpo/-1.jpeg" alt="Chocolate" class="floating-img" />
+        </div>
 
-    <!-- Right Side Images -->
-    <div class="floating-product right-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnKuPFgxeK3Jq8G2Nbhs2KjetHUSzOYtMw&s" 
-             alt="Cold Drink" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-center-floating">
-        <img src="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt3f555c029f6d5e66/679164e781dcb151cd60b98d/facts-about-ice-cream-ice-cream-sundae.jpeg?q=70&width=3840&auto=webp" 
-             alt="Ice Cream" 
-             class="floating-img">
-    </div>
-    
-    <div class="floating-product right-bottom-floating">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02QucnJJODTXUENths4rEfTFcBJtJi1KvpA&s" 
-             alt="Chocolate" 
-             class="floating-img">
-    </div>
+        <div class="floating-product left-center-floating">
+          <img src="./vitexpo/5.jpeg" alt="Ice Cream" class="floating-img" />
+        </div>
+
+        <div class="floating-product left-bottom-floating">
+          <img src="./vitexpo/d0.jpeg" alt="Cold Drink" class="floating-img" />
+        </div>
+
+        <!-- Right Side Images -->
+        <div class="floating-product right-floating">
+          <img src="./vitexpo/1.jpeg" alt="Cold Drink" class="floating-img" />
+        </div>
+
+        <div class="floating-product right-center-floating">
+          <img src="./vitexpo/2.jpeg" alt="Ice Cream" class="floating-img" />
+        </div>
+
+        <div class="floating-product right-bottom-floating">
+          <img src="./vitexpo/d33.jpeg" alt="Chocolate" class="floating-img" />
+        </div>
         <div class="container">
           <div class="hero-content">
             <h1>Contact Us</h1>
@@ -5279,7 +5347,6 @@
                         >
                           +91 79768 78862
                         </a>
-      
                       </div>
                     </div>
                   </div>
